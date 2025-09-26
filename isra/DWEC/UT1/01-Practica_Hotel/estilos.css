@@ -1,0 +1,331 @@
+/* ====== VARIABLES DE COLOR ====== */
+:root {
+  --primario: #0066cc;
+  --primario-oscuro: #004499;
+  --primario-claro: #e6f2ff;
+  --gris-muy-claro: #fafafa;
+  --gris-claro: #f5f5f5;
+  --gris-medio: #e5e5e5;
+  --gris-oscuro: #525252;
+  --gris-muy-oscuro: #262626;
+  --negro: #171717;
+  --blanco: #ffffff;
+  --sombra-pequena: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --sombra-mediana: 0 4px 12px rgba(0, 0, 0, 0.15);
+  --sombra-grande: 0 8px 24px rgba(0, 0, 0, 0.2);
+  --borde-redondeado: 8px;
+  --borde-redondeado-grande: 12px;
+}
+
+/* ====== ESTILOS GENERALES ====== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: var(--gris-muy-claro);
+  color: var(--gris-muy-oscuro);
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+  margin-top: 0;
+  color: var(--negro);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ====== CABECERA Y MENÚ ====== */
+header {
+  background: var(--primario);
+  color: var(--blanco);
+  padding: 24px 20px;
+  text-align: center;
+  box-shadow: var(--sombra-pequena);
+}
+
+header h1 {
+  color: var(--blanco);
+  margin-bottom: 16px;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: var(--blanco);
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: var(--borde-redondeado);
+  transition: all 0.2s ease;
+}
+
+nav a:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-1px);
+}
+
+/* ====== HERO ====== */
+.hero {
+  background: linear-gradient(135deg, var(--primario) 0%, var(--primario-oscuro) 100%);
+  color: var(--blanco);
+  text-align: center;
+  padding: 120px 20px;
+  position: relative;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("https://via.placeholder.com/1200x400?text=Hotel+Temático") no-repeat center center / cover;
+  opacity: 0.2;
+  z-index: 1;
+}
+
+.hero > * {
+  position: relative;
+  z-index: 2;
+}
+
+.hero h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 16px;
+  color: var(--blanco);
+  font-weight: 700;
+}
+
+/* ====== SECCIONES ====== */
+main {
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+section {
+  margin-bottom: 80px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  color: var(--primario);
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-weight: 600;
+}
+
+/* ====== GRID Y TARJETAS ====== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+  margin-top: 40px;
+}
+
+.card {
+  background: var(--blanco);
+  border-radius: var(--borde-redondeado-grande);
+  box-shadow: var(--sombra-pequena);
+  padding: 24px;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 1px solid var(--gris-medio);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--sombra-grande);
+  border-color: var(--primario);
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: var(--borde-redondeado);
+  margin-bottom: 16px;
+}
+
+.card h3 {
+  color: var(--negro);
+  margin-bottom: 12px;
+}
+
+.card p {
+  color: var(--gris-oscuro);
+  margin-bottom: 20px;
+}
+
+/* ====== BOTONES ====== */
+.btn,
+button {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 12px 24px;
+  background: var(--primario);
+  color: var(--blanco);
+  border-radius: var(--borde-redondeado);
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.btn:hover,
+button:hover {
+  background: var(--primario-oscuro);
+  transform: translateY(-1px);
+  box-shadow: var(--sombra-mediana);
+}
+
+.btn:active,
+button:active {
+  transform: translateY(0);
+}
+
+/* ====== FORMULARIOS ====== */
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 480px;
+  margin: 0 auto;
+  background: var(--blanco);
+  padding: 32px;
+  border-radius: var(--borde-redondeado-grande);
+  box-shadow: var(--sombra-pequena);
+}
+
+form label {
+  margin-top: 16px;
+  margin-bottom: 4px;
+  font-weight: 500;
+  color: var(--negro);
+}
+
+form input,
+form textarea {
+  padding: 12px 16px;
+  border: 2px solid var(--gris-medio);
+  border-radius: var(--borde-redondeado);
+  font-size: 14px;
+  transition: border-color 0.2s ease;
+}
+
+form input:focus,
+form textarea:focus {
+  outline: none;
+  border-color: var(--primario);
+  box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+}
+
+form textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* ====== OPINIONES ====== */
+blockquote {
+  background: var(--primario-claro);
+  border-left: 4px solid var(--primario);
+  margin: 32px auto;
+  padding: 24px;
+  max-width: 700px;
+  border-radius: 0 var(--borde-redondeado) var(--borde-redondeado) 0;
+  font-style: italic;
+  color: var(--gris-muy-oscuro);
+}
+
+blockquote cite {
+  display: block;
+  margin-top: 16px;
+  font-weight: 600;
+  color: var(--primario);
+  font-style: normal;
+}
+
+blockquote cite::before {
+  content: "— ";
+}
+
+/* ====== PIE DE PÁGINA ====== */
+footer {
+  background: var(--negro);
+  color: var(--blanco);
+  text-align: center;
+  padding: 32px 20px;
+  margin-top: 80px;
+}
+
+footer p {
+  margin: 0;
+  opacity: 0.8;
+}
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 768px) {
+  .hero {
+    padding: 80px 20px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  nav a {
+    display: block;
+    margin: 4px 0;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  main {
+    padding: 40px 16px;
+  }
+
+  section {
+    margin-bottom: 60px;
+  }
+
+  form {
+    margin: 0 16px;
+    padding: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 20px 16px;
+  }
+
+  .hero {
+    padding: 60px 16px;
+  }
+
+  .card {
+    padding: 20px;
+  }
+}

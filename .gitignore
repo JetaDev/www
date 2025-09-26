@@ -1,0 +1,6 @@
+# Ignorar la carpeta de dependencias de Composer
+/vendor/
+
+# Ignorar los archivos de Composer
+composer.json
+composer.lock
