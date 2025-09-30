@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3</title>
+</head>
+
+<body>
+    <h2>Actividad 1, Aprobado o Suspenso</h2>
+    <table>
+        <tr>
+            <td> <label for="nombre">Nombre Alumno</label></td>
+            <td> <input type="text" id="nombre" name="nombre"></td>
+        </tr>
+        <tr>
+            <td><label for="nota">Nota Alumno</label></td>
+            <td> <input type="number" id="nota" name="nota" max="10" min="0"></td>
+        </tr>
+    </table>
+    <button onclick="calcularNota()">Comprobar</button>
+    <p id="act1"></p>
+
+    <h2>Actividad 2, Número Mayor</h2>
+    <table>
+        <h3>Intoduce 3 números para comprobar cual es el mayor</h3>
+        <tr>
+            <td><input type="number" id="num1" min="0"></td>
+        </tr>
+        <tr>
+            <td><input type="number" id="num2" min="0"></td>
+        </tr>
+        <tr>
+            <td><input type="number" id="num3" min="0"></td>
+        </tr>
+    </table>
+    <button onclick="mostrarMayor()">Comprobar</button>
+    <p id="act2"></p>
+
+    <h2>Actividad 3, Juego del PUM</h2>
+    <button onclick="juegoPUM()">Jugar al PUM</button>
+    <p id="act3"></p>
+
+    <h2>Actividad 4, Tablas de operaciones </h2>
+    <table>
+        <tr>
+            <td><label for="numero">Escribe un numero y te dire sus tablas de sumar, dividir y multiplicar</label></td>
+            <td><input type="number" id="numAct4" min="0"></td>
+        </tr>
+    </table>
+    <button onclick="mostrarTablas()">Mostrar Tablas</button>
+    <p id="act4"></p>
+
+    <script src="js/01.notaAlumno.js"></script>
+    <script src="js/02.numMayor.js"></script>
+    <script src="js/03.pum.js"></script>
+    <script src="js/04.tablasOperaciones.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+    <htmllang="es">
+
+        <head>
+            <meta charset="UTF-8">
+                <title>GraphQL Client</title>
+                <script src="cliente_graphql.js">
+                    </script>
+        </head>
+
+        <body>
+            <p>
+                <label for="send">query</label>
+            </p>
+            <p>
+                <textarea id="send"rows="5" cols="80">query{ hello}</textarea>
+            </p>
+            <p>
+                <label for="vars">variables</label>
+            </p>
+            <p>
+                <textarea id="vars"rows="5" cols="80"></textarea>
+            </p>
+            <p>
+                <button onclick="getQueryString()" type="button">¡Vamos!</button>
+            </p>
+            <p>
+                <label for="resp">respuesta</label>
+            </p>
+            <p>
+                <textarea id="resp"rows="10" cols="80" readonly></textarea>
+            </p>
+        </body>
+
+        </html>

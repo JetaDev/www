@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let num1 = parseInt(prompt("Escribe el primero número"))
+        let simbolo =(prompt("Escoge uno de estos operadores(+,-,*,/,**,%)"))
+        let num2 =parseInt(prompt("Escoge el segundo número"))
+
+        let resultado;
+
+        switch (simbolo) {
+            case "+":
+                resultado = num1 + num2;
+                break;
+            case "-":
+                resultado = num1 - num2;
+                break;
+            case "*":
+                resultado = num1 * num2;
+                break;
+            case "/":
+                resultado = num1 / num2;
+                break;
+            case "**":
+                resultado = num1 ** num2;
+                break;
+            case "%":
+                resultado = num1 % num2;
+                break;
+            default:
+                alert("Operador no válido");
+                break;
+        }
+        document.writeln(`El resultado de ${num1} ${simbolo} ${num2} es ${resultado}`)
+    </script>
+</body>
+</html>

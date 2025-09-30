@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>prueba</title>
+</head>
+<body>
+    <h2>Mayor de Edad</h2>
+    <label for="edad">Escribe tu edad</label>
+    <input type="number" id="edad">
+    <button onclick="compronarEdad()">Comprobar</button>
+    <p id="resultado"></p>
+
+    <script>
+        function compronarEdad(){
+            let edad = document.getElementById("edad").value;
+            if(edad >= 18){
+                document.getElementById("resultado").innerHTML = "Eres mayor de edad";
+
+            }else{
+                document.getElementById("resultado").innerHTML = "Eres menor de edad"
+                alert("Eres menor de edad");
+            }
+        }
+    </script>
+</body>
+</html>
