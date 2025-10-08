@@ -1,6 +1,6 @@
 function getQueryString() {
     const url =
-        'http://localhost:8080/isra/Frameworks/graphql/';
+        document.getElementById('url').value;
     const resp =
         document.getElementById('resp');
     const query =

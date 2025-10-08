@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 global $root_fields_Resolver;
-require_once __DIR__ . '/../../../vendor/autoload.php';
+require_once __DIR__ . '/../../../../vendor/autoload.php';
 include_once __DIR__ . '/rootresolver.php';
 
 use GraphQL\Utils\BuildSchema;

@@ -1,5 +1,6 @@
 <?php
-$title = "Jugar";
+$title = "Mejores";
 include 'header.php';
 include 'footer.php';
+
 ?>

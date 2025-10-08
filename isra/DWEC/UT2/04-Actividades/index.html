@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Actividad 1, Variables numéricas</h2>
+    <table>
+        <tr>
+            <td><button onclick="numerosAlert()">numeros</button></td>
+        </tr>
+    </table>
+
+    <h2>Actividad 2 y 3, Horas</h2>
+    <table>
+        <tr>
+            <td><button onclick="listaHoras()">Horas 30 en 30</button></td>
+            <td><button onclick="listaHoras2()">Horas 5 en 5</button></td>
+        </tr>
+    </table>
+    <div id="act2"></div>
+
+    <h2>Actividad 4, Edad</h2>
+    <table>
+        <tr>
+            <td><label for="nombre">Dime tu nombre</label></td>
+            <td><input type="text" name="nombre" id="nombre"></td>
+        </tr>
+        <tr>
+            <td><label for="edad">Dime tu edad</label></td>
+            <td><input type="number" name="edad" id="edad" min="0" max="120"></td>
+        </tr>
+    </table>
+    <div id="act4"></div>
+    <button onclick="franjaEdad()">Mostrar edad</button>
+
+    <h2>Actividad 5, Conversor de Tiempo</h2>
+    <table>
+        <tr>
+            <td><label for="minutos">Dime los minutos</label></td>
+            <td><input type="number" name="minutos" id="minutos" min="0"></td>
+        </tr>
+        <tr>
+            <td><label for="horas">Dime las horas</label></td>
+            <td><input type="number" name="horas" id="horas" min="0"></td>
+        </tr>
+        <tr>
+            <td><label for="dias">Dime las dias</label></td>
+            <td><input type="number" name="dias" id="dias" min="0"></td>
+        </tr>
+        <tr>
+            <td><button onclick="convertirTiempo()">Convertir a segundos</button></td>
+        </tr>
+        <tr>
+            <td id="act5"></td>
+        </tr>
+    </table>
+
+    <h2>Actividad 6, Calcular letra DNI</h2>
+    <table>
+        <tr>
+            <td><label for="dni">Dime tu DNI (sin letra)</label></td>
+            <td><input type="number" name="dni" id="dni" min="0" max="99999999"></td>
+        </tr>
+
+        <tr>
+            <td id="act6"></td>
+        </tr>
+    
+        <tr>
+            <td><button onclick="calcularLetraDNI()">Calcular letra</button></td>
+        </tr>
+
+    </table>
+
+    <h2>Actividad 7, Comprobar bisiesto</h2>
+    <table>
+        <tr>
+            <td><label for="anio">Dime un año</label></td>
+            <td><input type="number" name="anio" id="anio" min="0"></td>
+        </tr>
+        <tr>
+            <td><button onclick="esBisiesto()">Comprobar si es bisiesto</button></td>
+        </tr>
+        <tr>
+            <td id="act7"></td>
+        </tr>
+
+    <script src="js/01.Numeros.js"></script>
+    <script src="js/02_03.Horas.js"></script>
+    <script src="js/04.edad.js"></script>
+    <script src="js/05.conversorTiempo.js"></script>
+    <script src="js/06.letraDNI.js"></script>
+    <script src="js/07.bisiesto.js"></script>
+</body>
+</html>

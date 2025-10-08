@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date</title>
+</head>
+<body>
+    <script>
+        console.log(Date());
+        let fecha = new Date();
+        console.log(fecha);
+        //Dia del mes
+        document.write("<strong>Dia del mes: </strong>" + fecha.getDate() +"<br>");
+        //Dia de la semana(0-Domingo, 6-Sabado)
+        document.write("<strong>Dia de la semana: </strong>" + fecha.getDay() +"<br>");
+        //Año
+        document.write("<strong>Año: </strong>" + fecha.getFullYear() +"<br>");
+        //Mostrar la fecha en formato texto
+        document.write("<strong>Fecha en formato texto: </strong>" + fecha.toString() +"<br>");
+        document.write("<strong>Fecha en formato  :</strong>" + fecha.toDateString() +"<br>");
+        document.write("<strong>Fecha en formato local: </strong>" + fecha.toLocaleString() +"<br>");
+        document.write("<strong>Fecha en formato local (solo fecha): </strong>" + fecha.toLocaleDateString() +"<br>");
+        document.write("<strong>Fecha en formato local (solo hora): </strong>" + fecha.toLocaleTimeString() +"<br>");
+
+        let cumple1 = new Date(1978, 7 , 15)
+        let cumple2 = new Date("1978/08/15");
+        document.write("<strong>Fecha de nacimiento 1: </strong>" + cumple1 +"<br>");
+        document.write("<strong>Fecha de nacimiento 2: </strong>" + cumple2 +"<br>");
+        
+        //modificar fecha
+        cumple1.setFullYear(2003);
+        document.write("<strong>Fecha de nacimiento 1 modificada: </strong>" + cumple1 +"<br>");
+    </script>
+</body>
+</html>

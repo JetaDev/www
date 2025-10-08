@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica 1</title>
+</head>
+<body>
+    <h2>Ejercicio 1. Tabla de módulos</h2>
+    <div id="info"></div>
+    <div id="tabla"></div>
+    <button onclick="moduloFavorito()">Elegir Módulo Favorito</button>
+    <div id="fav"></div>
+
+    <h2>Ejercicio 2. Devolver numeros</h2>
+    <table>
+        <tr>
+            <td><label for="">Elige número: </label></td>
+            <td><input onclick="numeroCifras()" onkeyup="numeroCifras()" 
+                type="number" name="num" id="num" min="1" max="999"></td>
+        </tr>
+    </table>
+    <div id="numeros"></div>
+
+    <h2>Ejercicio 3. Nota</h2>
+    <table>
+        <tr>
+            <td><label for="nota">Dime la nota de tu primer Examen (0-10): </label></td>
+            <td><input type="number" name="nota" id="ex1" min="0" max="10"></td>
+        </tr>
+                <tr>
+            <td><label for="nota">Dime la nota de tu segundo Examen (0-10): </label></td>
+            <td><input type="number" name="nota" id="ex2" min="0" max="10"></td>
+        </tr>
+                <tr>
+            <td><label for="nota">Dime la nota de tu primer trabajo (0-10): </label></td>
+            <td><input type="number" name="nota" id="tr1" min="0" max="10"></td>
+        </tr>
+                <tr>
+            <td><label for="nota">Dime la nota de tu segundo trabajo (0-10): </label></td>
+            <td><input type="number" name="nota" id="tr2" min="0" max="10"></td>
+        </tr>
+        <tr>
+            <td><button onclick="evaluar()">Mostrar Nota</button></td>
+        </tr>
+        <tr>
+            <td id="resultadoNota"></td>
+        </tr>
+    </table>
+    <h2>Ejercicio 4. Número de un dia de un mes</h2>
+    <table>
+        <tr>
+            <td><label for="">Escribe un mes</label></td>
+            <td><input type="text" name="mes" id="mes"></td>
+        </tr>
+    </table>
+    <button onclick="diasMes()">Mostrar Días</button>
+    <div id="dias"></div>
+
+    <h2>Ejercicio 5. Números</h2>
+    <table>
+        <tr>
+            <td><button onclick="numeros()">Mostrar Números</button></td>
+        </tr>
+        <tr>
+            <td id="ej5"></td>
+        </tr>
+    </table>
+
+    <h2>Ejercicio 6. Múltiplos de 3</h2>
+    <table>
+        <tr>
+            <td><label for="">Escribe un número entre 1 y 30</label></td>
+            <td><input onchange="multiplos()" type="number" name="num5" id="num5" min="1" max="30"></td>
+        </tr>
+    </table>
+    <button onclick="multiplos()">Mostrar Múltiplos de 3</button>
+    <div id="ej6"></div>
+
+    <h2>Ejercicio 7. Adivinador</h2>
+    <button onclick="adivinador()">Iniciar Juego</button>
+    <div id="mensaje"></div>
+
+    <script src="js/ej1.js"></script>
+    <script src="js/ej2.js"></script>
+    <script src="js/ej3.js"></script>
+    <script src="js/ej4.js"></script>
+    <script src="js/ej5.js"></script>
+    <script src="js/ej6.js"></script>
+    <script src="js/ej7.js"></script>
+    
+</body>
+</html>

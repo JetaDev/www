@@ -1,0 +1,23 @@
+body {
+    margin: 0;
+}
+
+header {
+    display: grid;
+    grid-template-columns: 1fr auto; 
+    align-items: start; 
+    padding: 10px;
+    background: #f0f0f0;
+}
+
+header nav {
+    text-align: center;
+    grid-column: 1 / -1; 
+    margin-bottom: 10px;
+}
+
+
+header aside {
+    grid-column: 2; 
+    justify-self: end;
+}
