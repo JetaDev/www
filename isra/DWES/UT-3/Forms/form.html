@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo básico</title>
+</head>
+<body>
+    <form action="procesa.php" method="post" >
+        <!-- input de texto -->
+        <label for="nombre">Texto:</label>
+        <input type="text" id="nombre" name="nombre"><br><br>
+
+        <!-- checkbox -->
+        <input type="checkbox" id="cb" name="cb">
+        <label for="cb">Checkbox</label><br><br>
+
+        <!-- radio buttons -->
+        <input type="radio" id="radio1" name="opcion" value="1">
+        <label for="radio1">Radio 1</label><br>
+
+        <input type="radio" id="radio2" name="opcion" value="2">
+        <label for="radio2">Radio 2</label><br><br>
+
+        <!-- botón submit -->
+        <button type="submit">Enviar</button>
+    </form>
+</body>
+</html>

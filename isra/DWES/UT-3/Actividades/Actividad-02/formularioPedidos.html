@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Formulario de Pedido</title>
+  </head>
+  <body>
+    <table border="1">
+      <tr>
+        <th>Nº Unidades</th>
+        <th>Descuento</th>
+      </tr>
+      <tr>
+        <td>Inferior a 5</td>
+        <td>Sin descuento</td>
+      </tr>
+      <tr>
+        <td>Entre 5 y 10</td>
+        <td>5%</td>
+      </tr>
+      <tr>
+        <td>Entre 11 y 20</td>
+        <td>10%</td>
+      </tr>
+      <tr>
+        <td>Superior a 20</td>
+        <td>25%</td>
+      </tr>
+    </table>
+    <h2>Realiza tu pedido</h2>
+    <form action="factura.php" method="get">
+      <label>Artículo A (5.99€):</label>
+      <input type="number" name="articulo1" min="0" value="0" /><br /><br />
+
+      <label>Artículo B (12.49€):</label>
+      <input type="number" name="articulo2" min="0" value="0" /><br /><br />
+
+      <label>Artículo C (19.99€):</label>
+      <input type="number" name="articulo3" min="0" value="0" /><br /><br />
+
+      <button type="submit">Generar factura</button>
+    </form>
+  </body>
+</html>

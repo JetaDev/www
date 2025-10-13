@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Actividad 3.3 - Formulario</title>
+</head>
+<body>
+    <h2>Formatos en Texto</h2>
+    <form action="act3.php" method="get">
+        <p><label for="texto">Texto:</label></p>
+        <textarea name="texto" id="texto" rows="4" cols="50"></textarea>
+
+        <fieldset>
+            <legend>Características del borde</legend>
+
+            <p><label for="tamanio">Tamaño (px):</label></p>
+            <input type="number" name="tamanio" id="tamanio" min="0" max="10" value="1">
+
+            <p><label for="color">Color:</label></p>
+            <select name="color" id="color">
+                <option value="black">Negro</option>
+                <option value="red">Rojo</option>
+                <option value="blue">Azul</option>
+                <option value="yellow">Amarillo</option>
+            </select>
+
+            <p><label for="estilo">Estilo:</label></p>
+            <select name="estilo" id="estilo">
+                <option value="solid">Liso</option>
+                <option value="double">Doble</option>
+                <option value="dotted">Punteado</option>
+                <option value="hidden">Oculto</option>
+            </select>
+        </fieldset>
+
+        <br>
+        <input type="submit" value="Enviar">
+    </form>
+</body>
+</html>

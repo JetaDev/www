@@ -1,0 +1,35 @@
+type Author {
+    firstName: String! 
+    lastName: String!
+}
+
+type Book
+ implements LibItem {
+    id: ID!
+    title: String!
+    authors: [Author!]
+}
+
+type BoardGame
+ implements LibItem {
+    id: ID!
+    title: String!
+    pub: Publisher!
+}
+
+interface LibItem {
+    id: ID!
+    title: String!
+}
+
+type Publisher {
+    name: String!
+}
+
+type Query {
+    libItems: [LibItem!]
+}
+
+schema {
+    query: Query
+}

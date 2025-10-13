@@ -1,0 +1,19 @@
+type Query {
+peliculas: [Pelicula]
+peliculaPorId(id: ID!): Pelicula
+actores: [Actor]
+actorPorId(id: ID!): Actor
+}
+
+type Pelicula {
+id: ID!
+titulo: String!
+anio: Int!
+actores: [Actor]
+}
+
+type Actor {
+id: ID!
+nombre: String!
+peliculas: [Pelicula]
+}

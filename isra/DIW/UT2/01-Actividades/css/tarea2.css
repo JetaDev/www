@@ -1,0 +1,31 @@
+body {
+    text-align: center; 
+    background-color: white; 
+}
+
+div {
+    color: white;                
+    width: 100px;                              
+    border: 1px solid white;     
+    padding: 5px;                
+    display: inline-block;       
+    text-align: center;       
+    box-sizing: border-box;  
+}
+
+/* Colores específicos */
+.azul {
+    background-color: blue;
+}
+
+.verde {
+    background-color: green;
+}
+
+.rojo {
+    background-color: red;
+}
+
+.negro {
+    background-color: black;
+}

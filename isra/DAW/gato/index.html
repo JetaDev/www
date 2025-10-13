@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Gato de Schrödinger</title>
+</head>
+<body>
+  <h1>Gato de Schrödinger</h1>
+  <p>Pulsa el botón para abrir la caja y ver si el gato está vivo o muerto.</p>
+
+  <label for="usuario">Tu nombre:</label>
+  <input id="usuario" type="text" placeholder="Introduce tu nombre">
+
+  <button id="abrir">Abrir la caja</button>
+
+  <h2 id="resultado"></h2>
+
+  <h3><a href="historial.php">Ver historial</a></h3>
+
+  <script>
+    document.getElementById('abrir').addEventListener('click', async () => {
+      const usuario = document.getElementById('usuario').value || 'anónimo';
+      try {
+        const res = await fetch(`server.php?usuario=${encodeURIComponent(usuario)}`);
+        const text = await res.text();
+        document.getElementById('resultado').textContent = text;
+      } catch (err) {
+        document.getElementById('resultado').textContent = 'Error: ' + err.message;
+      }
+    });
+  </script>
+</body>
+</html>
