@@ -1,0 +1,49 @@
+body {
+  margin: 0;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.contenedor-principal {
+  padding: 20px;
+}
+
+.contenedor-principal h1 {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.contenedor-principal > p {
+  margin-bottom: 20px;
+}
+
+.contenedor-bloques {
+  background-color: #ccc;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+}
+
+.caja-info {
+  width: 250px;
+  height: 150px;
+  margin: 50px;
+  background-color: #00f;
+  color: white;
+  border: 3px dotted red;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+.caja-info h2 {
+  margin: 0 0 10px 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.caja-info p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.4;
+}

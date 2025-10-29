@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Demostración de background-origin (Imagen Única)</title>
+    <style>
+        /* Estilos Base del Contenedor */
+        .box {
+            width: 80%;
+            margin: 20px auto;
+            padding: 30px;
+            border: 10px dotted black;
+            
+
+            background-image: url('https://picsum.photos/50/50'); 
+            background-repeat: no-repeat; 
+
+            font-family: sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+            min-height: 100px;
+            background-color: #f0f0f0; 
+        }
+
+        h1 {
+            text-align: center;
+            font-family: sans-serif;
+        }
+
+        .border-box {
+            background-origin: border-box; 
+        }
+
+        /* La imagen única comienza desde el RELLENO */
+        .padding-box {
+            background-origin: padding-box; 
+        }
+
+        /* La imagen única comienza desde el CONTENIDO */
+        .content-box {
+            background-origin: content-box;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>background-origin (Imagen Única)</h1>
+
+    <div class="box border-box">
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Asperiores, illo impedit dicta quas aliquam repudiandae! Rem sed eveniet magnam molestias saepe, pariatur minus quaerat laboriosam, accusamus neque delectus? Laboriosam, error!</p>
+    </div>
+    
+    <div class="box padding-box">
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo distinctio pariatur quidem reiciendis. Possimus itaque quasi, amet ab fuga blanditiis, mollitia eum rerum sint voluptatum pariatur, quas nam nihil aliquam.</p>
+    </div>
+
+    <div class="box content-box">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum nostrum debitis, sunt consequuntur recusandae eaque optio cumque, fuga rem atque numquam provident? Nostrum magni officiis mollitia eligendi corporis recusandae ratione!</p>
+    </div>
+
+</body>
+</html>

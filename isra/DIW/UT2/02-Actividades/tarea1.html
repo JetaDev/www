@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarea background-clip y background-origin</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #fff; /* Fondo blanco */
+}
+
+h1 {
+    color: #333;
+    text-decoration: underline wavy #ff0000; /* Simulación de la línea ondulada */
+    font-size: 24px;
+}
+
+.box {
+    margin-bottom: 20px;
+    padding: 20px; /* Relleno significativo */
+    width: 600px; /* Ancho fijo para ejemplo */
+    border: 10px dotted black; /* Borde punteado negro */
+    background-color: coral; /* El color de fondo para el ejemplo (rojo anaranjado) */
+    color: black; /* Color del texto */
+}
+
+/* 1. Fondo en Padding y Contenido */
+
+.padding-clip {
+    background-clip: padding-box;
+}
+
+/* 2. Fondo en Borde, Padding y Contenido */
+
+.border-clip {
+    background-clip: border-box;
+}
+
+/* 3. Fondo solo en Contenido */
+
+.content-clip {
+    background-clip: content-box;
+}
+    </style>
+</head>
+<body>
+    <h1>background-clip</h1>
+    <div class="box border-clip">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse optio nisi, enim laudantium aliquam, earum delectus dolores
+        maiores recusandae doloremque saepe tenetur minus commodi sed eligendi sint voluptatum tempore at veniam.
+    </div>
+    <div class="box padding-clip">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse optio nisi, enim laudantium aliquam, earum delectus dolores
+        maiores recusandae doloremque saepe tenetur minus commodi sed eligendi sint voluptatum tempore at veniam.
+    </div>
+
+
+
+    <div class="box content-clip">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse optio nisi, enim laudantium aliquam, earum delectus dolores
+        maiores recusandae doloremque saepe tenetur minus commodi sed eligendi sint voluptatum tempore at veniam.
+    </div>
+
+</body>
+</html>

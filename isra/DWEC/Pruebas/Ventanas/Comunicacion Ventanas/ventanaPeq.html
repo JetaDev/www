@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Ventana Pequeña</h2>
+    <h3>Recoger datos variables globales por Local y Session</h3>
+    <button onclick="reocogerVar()">Recoger Variable</button>
+
+    <script>
+        function reocogerVar(){
+            alert(localStorage.nombre + sessionStorage.apellido)
+        }
+    </script>
+</body>
+</html>

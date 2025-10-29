@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad7</title>
+    <style>
+        #contenedorTarjetas {
+            display: flex;
+            gap: 20px;
+            padding: 10px 0;
+            flex-wrap: wrap;
+        }
+        .tarjeta {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            width: 300px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .tarjeta img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        .tarjeta button {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>1. Lista dinámica</h2>
+    <div>
+        <input type="text" name="" id="nombreProducto" placeholder="Introduce un producto">
+        <button onclick="mostrarLista()">Obtener Producto</button>
+        <ul id="listaProductos">
+
+        </ul>
+    </div>
+
+
+    <h2>2. Imagen a contenedor</h2>
+    <div>
+        <input type="text" id="urlImagen" placeholder="Añade la url de una imagen">
+        <button onclick="mostrarImagen()">Mostrar Imagen</button>
+        <div id="contenedorImagen">
+
+        </div>
+    </div>
+
+
+    <h2>3. Tarjetas dinámicas</h2>
+    <div>
+        <input type="text" id="imagenURL" placeholder="URL de la imagen">
+        <input type="text" id="tituloTarjeta" placeholder="Título">
+        <input type="text" id="descripcion" placeholder="Descripción">
+        <button onclick="crearNuevaTarjeta()">Crear Tarjeta</button>
+    </div>
+    <div id="contenedorTarjetas">
+
+    </div>
+
+    <h2>5.Lista Tareas</h2>
+    <div>
+        <input type="text" id="nuevaTarea" placeholder="Añadir nueva tarea">
+        <button id="agregarBtn">Añadir Tarea</button>
+        <ul id="listaTareas">
+        </ul>
+    </div>
+
+    <h2>6. Tabla dinámica</h2>
+    <div>
+        <input type="text" id="nombreInput" placeholder="Nombre del Producto">
+        <input type="number" id="precioInput" placeholder="Precio">
+        <button onclick="agregarFila()">Añadir Producto</button>
+    </div>
+
+    <div id="contenedorTabla">
+        </div> 
+           <script src="scripts.js"></script>
+</body>
+</html>
