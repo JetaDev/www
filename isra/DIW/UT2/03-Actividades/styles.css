@@ -1,3 +1,5 @@
+
+
 html {
   font-size: 25px;
 }
@@ -101,3 +103,169 @@ tfoot td {
   border: none;
   cursor: pointer;
 }
+
+/*Tarea 4*/
+#ej4 {
+  background-color: #ffffff;
+
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  padding: 15px 20px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+  font-size: 1rem;
+}
+
+li:nth-child(odd) {
+  background-color: #e3f2fd;
+}
+
+li:nth-child(even) {
+  background-color: #fce4ec;
+}
+
+li:hover {
+  background-color: #d1c4e9;
+  cursor: pointer;
+}
+
+/*Tarea 5*/
+#ej5 {
+  background-color: #ffffff;
+  padding: 30px;
+  margin-top: 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#ej5 h3 {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #0078d4;
+}
+
+#ej5 p {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+#ej5 p:first-of-type {
+  background-color: #e0f7fa;
+  padding: 10px;
+  border-left: 4px solid #0078d4;
+  font-weight: bold;
+  border-radius: 6px;
+}
+
+#ej5 button {
+  display: block;
+  margin: 20px auto 0;
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #0078d4;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#ej5 button:hover {
+  background-color: #005fa3;
+}
+
+/*Ejercicio 6*/
+/* Estilo para el botón de Ejercicio 6 */
+#ej6 {
+  background-color: #ffffff;
+  padding: 30px;
+  margin-top: 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+#ej6 h3 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #0078D4;
+}
+
+#ej6 button {
+  background-color: #0078D4;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#ej6 button:hover {
+  background-color: #005fa3;
+}
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Tinos&display=swap');
+
+/* Ejercicio 7 - Fuentes */
+#ej7 {
+  padding: 40px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+#ej7 h1 {
+  font-family: 'Times New Roman', Times, serif;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  color: #333;
+}
+
+#ej7 section {
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  color: white;
+}
+
+.arial {
+  font-family: Arial, sans-serif;
+  background-color: #4CAF50;
+}
+
+.courier {
+  font-family: "Courier New", Courier, monospace;
+  background-color: #FF5722;
+}
+
+.tinos {
+  font-family: 'Tinos', serif;
+  background-color: #3F51B5;
+}
+
+.pacifico {
+  font-family: 'Pacifico', cursive;
+  background-color: #9C27B0;
+}
+

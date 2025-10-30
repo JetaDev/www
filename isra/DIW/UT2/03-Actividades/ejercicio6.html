@@ -1,0 +1,46 @@
+      <!DOCTYPE html>
+      <html lang="es">
+      <head>
+        <meta charset="UTF-8">
+        <title>Layout 70/30</title>
+        <style>
+          html, body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            width: 100vw;
+          }
+          .contenedor {
+            display: flex;
+            height: 100%;
+            width: 100%;
+          }
+          .izquierda {
+            width: 30%;
+            background-color: red;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+          }
+          .derecha {
+            width: 70%;
+            background-color: green;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+          }
+        </style>
+      </head>
+      <body>
+        <div class="contenedor">
+          <div class="izquierda"></div>
+          <div class="derecha"></div>
+        </div>
+      </body>
+      </html>
