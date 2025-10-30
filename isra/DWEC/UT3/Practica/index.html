@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Formulario con Cookies y localStorage</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="container">
+    <h2>Datos del Usuario</h2>
+
+    <div class="field">
+      <label for="nombre">Nombre</label>
+      <input type="text" id="nombre" />
+    </div>
+
+    <div class="field">
+      <label for="edad">Edad</label>
+      <input type="number" id="edad" max="120" min="0" />
+    </div>
+
+    <div class="field">
+      <label for="nacionalidad">Nacionalidad</label>
+      <input type="text" id="nacionalidad" />
+    </div>
+
+    <div class="field">
+      <label for="tel">Teléfono</label>
+      <input type="tel" id="tel" maxlength="9" minlength="9" />
+    </div>
+
+    <div class="field">
+      <label for="correo">Correo Electrónico</label>
+      <input type="email" id="correo" />
+    </div>
+
+    <button onclick="guardarDatos()">Guardar Datos</button>
+    <div class="grouped-buttons">
+      <button onclick="leerDatos()">Leer Datos</button>
+      <button onclick="borrarCookie()">Borrar Nombre</button>
+      <button onclick="borrarLocalStorage()">Borrar Todo</button>
+      <button onclick="eliminarCampo()">Eliminar Campo</button>
+    </div>
+
+    <div class="field">
+      <label for="claveEliminar">Selecciona campo a eliminar</label>
+      <select id="claveEliminar" onchange="mostrarValorCampo()"></select>
+      <div class="campo-preview" id="valorCampo"></div>
+    </div>
+
+    <div id="mensaje"></div>
+  </div>
+
+  <script src="scripts.js"></script>
+</body>
+</html>

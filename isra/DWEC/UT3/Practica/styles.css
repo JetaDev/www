@@ -1,0 +1,101 @@
+:root {
+      --bg: #f9f9f9;
+      --card: #ffffff;
+      --accent: #0078D4;
+      --text: #333;
+      --muted: #777;
+      --radius: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 40px 20px;
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 500px;
+      background: var(--card);
+      padding: 30px;
+      border-radius: var(--radius);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    }
+
+    h2 {
+      margin-bottom: 30px;
+      font-size: 1.8rem;
+      text-align: center;
+    }
+
+    .field {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 500;
+      color: var(--muted);
+    }
+
+    input, select {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: var(--radius);
+      font-size: 1rem;
+      background-color: #fefefe;
+      transition: border-color 0.2s ease;
+    }
+
+    input:focus, select:focus {
+      border-color: var(--accent);
+      outline: none;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      font-size: 1rem;
+      background-color: var(--accent);
+      color: white;
+      border: none;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    button:hover {
+      background-color: #005fa3;
+    }
+
+    .grouped-buttons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    #mensaje {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 0.95rem;
+      color: var(--accent);
+    }
+
+    .campo-preview {
+      margin-top: 10px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
