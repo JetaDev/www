@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>Ejercicios DWEC - Date / String / Math / BOM / DOM</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    :root{
+      --bg:#071028; --card:#071630; --accent:#7c5cff; --text:#e6eef8; --muted:#98a2b3;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: linear-gradient(180deg,#02122a 0%, #001827 100%); color:var(--text);
+      padding:22px; min-height:100vh; display:flex; justify-content:center;
+    }
+    .wrap{ width:100%; max-width:1200px; }
+    h1{ margin:0 0 14px 0; color:var(--accent); }
+    .grid{ display:grid; grid-template-columns:1fr; gap:14px; }
+    @media(min-width:980px){ .grid{ grid-template-columns: 1fr 1fr; } }
+    .card{ background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border-radius:10px; padding:14px; border:1px solid rgba(255,255,255,0.03); }
+    .title{ font-weight:700; color:#cfe1ff; margin-bottom:8px; }
+    .muted{ color:var(--muted); font-size:13px; margin-bottom:8px; }
+    .row{ display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-bottom:8px; }
+    button, input, select{ background:#071a2a; color:var(--text); border:1px solid rgba(255,255,255,0.04); padding:8px 10px; border-radius:8px; cursor:pointer; font-size:14px; }
+    input[type="number"]{ width:110px; }
+    .out{ background:rgba(255,255,255,0.02); padding:8px; border-radius:6px; font-family:monospace; font-size:13px; color:#dbe9ff; }
+    label{ font-size:13px; color:var(--muted); }
+    .full{ grid-column: 1 / -1; }
+    pre{ white-space:pre-wrap; margin:6px 0; font-size:13px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Ejercicios completos — DWEC UT3</h1>
+
+    <div class="grid">
+      <!-- DATE -->
+      <div class="card">
+        <div class="title">Date — Fecha y reloj en tiempo real</div>
+        <div class="muted">Muestra fecha/hora actual, día de la semana y días restantes para fin de año.</div>
+        <div class="row">
+          <div id="date-fecha" class="out">Cargando fecha...</div>
+        </div>
+        <div class="row">
+          <div id="date-dia" class="out">—</div>
+          <div id="date-restantes" class="out">—</div>
+        </div>
+      </div>
+
+      <!-- STRING -->
+      <div class="card">
+        <div class="title">String — Operaciones con cadenas</div>
+        <div class="muted">Introduce una frase y obtén longitud, mayúsculas, invertida y cuenta de palabras.</div>
+        <div class="row">
+          <input id="str-input" placeholder="Escribe una frase..." class="fullwidth" style="min-width:240px;">
+          <button id="str-btn">Procesar</button>
+        </div>
+        <div class="row">
+          <div id="str-len" class="out">Longitud: —</div>
+          <div id="str-upper" class="out">Mayúsculas: —</div>
+        </div>
+        <div class="row">
+          <div id="str-rev" class="out" style="width:100%;">Invertida: —</div>
+        </div>
+        <div class="row">
+          <div id="str-words" class="out">Palabras: —</div>
+        </div>
+      </div>
+
+      <!-- MATH -->
+      <div class="card">
+        <div class="title">Math — Operaciones básicas</div>
+        <div class="muted">Pide un número y muestra round, sqrt, abs y aleatorio 1..100</div>
+        <div class="row">
+          <input id="math-num" type="number" placeholder="Número decimal" step="any">
+          <button id="math-btn">Calcular</button>
+        </div>
+        <div class="row">
+          <div id="math-round" class="out">Round: —</div>
+          <div id="math-sqrt" class="out">Sqrt: —</div>
+        </div>
+        <div class="row">
+          <div id="math-abs" class="out">Abs: —</div>
+          <div id="math-rand" class="out">Aleatorio (1-100): —</div>
+        </div>
+      </div>
+
+      <!-- NAVIGATOR -->
+      <div class="card">
+        <div class="title">Navigator — Información del navegador</div>
+        <div class="muted">Muestra userAgent, idioma y si las cookies están activas.</div>
+        <div class="row">
+          <div class="out" id="nav-ua">UA: —</div>
+        </div>
+        <div class="row">
+          <div class="out" id="nav-lang">Idioma: —</div>
+          <div class="out" id="nav-cookies">Cookies habilitadas: —</div>
+        </div>
+      </div>
+
+      <!-- SCREEN -->
+      <div class="card">
+        <div class="title">Screen — anchura / altura / diagonal</div>
+        <div class="muted">Calcula diagonal en px y, opcionalmente, en pulgadas si facilitas PPI.</div>
+        <div class="row">
+          <button id="screen-btn">Obtener dimensiones</button>
+        </div>
+        <div class="row">
+          <div id="screen-w" class="out">W: —</div>
+          <div id="screen-h" class="out">H: —</div>
+          <div id="screen-d" class="out">Diagonal px: —</div>
+        </div>
+        <div class="row">
+          <label>PPI (opcional):</label>
+          <input id="screen-ppi" type="number" placeholder="e.g. 96">
+          <button id="screen-ppi-btn">Calcular pulgadas</button>
+          <div id="screen-d-in" class="out">—</div>
+        </div>
+      </div>
+
+      <!-- LOCATION -->
+      <div class="card">
+        <div class="title">Location — Navegación y URL</div>
+        <div class="muted">Botones para navegar, recargar y mostrar URL.</div>
+        <div class="row">
+          <button id="loc-google">Ir a Google (google.es)</button>
+          <button id="loc-reload">Recargar página</button>
+          <button id="loc-show">Mostrar URL</button>
+        </div>
+        <div class="row">
+          <div id="loc-out" class="out">URL: —</div>
+        </div>
+      </div>
+
+      <!-- HISTORY -->
+      <div class="card">
+        <div class="title">History — back, forward, go, pushState, replaceState</div>
+        <div class="muted">Prueba pushState y replaceState para ver cambios en history.length y state.</div>
+        <div class="row">
+          <button id="h-back">back()</button>
+          <button id="h-forward">forward()</button>
+          <button id="h-go--1">go(-1)</button>
+          <button id="h-push">pushState</button>
+          <button id="h-replace">replaceState</button>
+        </div>
+        <div class="row">
+          <div id="h-length" class="out">length: —</div>
+          <div id="h-state" class="out">state: —</div>
+        </div>
+        <div class="row">
+          <div id="h-pop" class="out">popstate: —</div>
+        </div>
+      </div>
+
+      <!-- VENTANAS -->
+      <div class="card">
+        <div class="title">Ventanas — Abrir / mover / redimensionar / scroll / cerrar</div>
+        <div class="muted">Se pide confirmación antes de abrir. Ventana hija contiene botón para cerrarse.</div>
+        <div class="row">
+          <button id="win-open">Abrir ventana (confirm)</button>
+          <button id="win-close">Cerrar ventana</button>
+        </div>
+        <div class="row">
+          <button id="win-moveby">Mover +10, +10</button>
+          <button id="win-moveto">Mover a 100,100</button>
+        </div>
+        <div class="row">
+          <button id="win-resizeby">Aumentar +10×+10</button>
+          <button id="win-resizeto">Redimensionar a 400×200</button>
+        </div>
+        <div class="row">
+          <button id="win-scroll-top">Scroll 0</button>
+          <button id="win-scroll-50">Scroll 50</button>
+        </div>
+        <div class="row">
+          <div id="win-status" class="out">Estado: —</div>
+          <div id="win-log" class="out" style="width:100%;">Registro: —</div>
+        </div>
+      </div>
+
+      <!-- LOCALSTORAGE -->
+      <div class="card">
+        <div class="title">LocalStorage — Guardar / Leer / Borrar</div>
+        <div class="muted">Guarda un nombre y recupera automáticamente al recargar.</div>
+        <div class="row">
+          <input id="ls-name" placeholder="Nombre a guardar">
+          <button id="ls-save">Guardar</button>
+          <button id="ls-read">Leer</button>
+          <button id="ls-clear">Borrar</button>
+        </div>
+        <div class="row">
+          <div id="ls-out" class="out">Valor guardado: —</div>
+        </div>
+      </div>
+
+      <!-- COOKIES -->
+      <div class="card">
+        <div class="title">Cookies — Crear / Leer / Eliminar</div>
+        <div class="muted">Crea una cookie 'usuario' con expiración corta y controla su lectura/eliminación.</div>
+        <div class="row">
+          <input id="cookie-name" placeholder="Valor cookie (tu nombre)">
+          <button id="cookie-set">Crear cookie (1 min)</button>
+          <button id="cookie-read">Leer cookie</button>
+          <button id="cookie-del">Eliminar cookie</button>
+        </div>
+        <div class="row">
+          <div id="cookie-out" class="out">Cookie: —</div>
+        </div>
+      </div>
+
+      <!-- TIMERS -->
+      <div class="card">
+        <div class="title">Temporizadores — Cuenta atrás</div>
+        <div class="muted">Inicia una cuenta atrás (segundos) y prueba stop/reset.</div>
+        <div class="row">
+          <input id="timer-secs" type="number" placeholder="Segundos" value="5">
+          <button id="timer-start">Iniciar</button>
+          <button id="timer-stop">Parar</button>
+          <button id="timer-reset">Reset</button>
+        </div>
+        <div class="row">
+          <div id="timer-out" class="out">Tiempo: —</div>
+        </div>
+      </div>
+
+      <!-- GENERAR ELEMENTOS -->
+      <div class="card full">
+        <div class="title">Generación dinámica de elementos HTML</div>
+        <div class="muted">Genera una lista con 5 elementos y permite limpiar.</div>
+        <div class="row">
+          <button id="gen-list">Generar lista 1..5</button>
+          <button id="gen-clear">Limpiar</button>
+        </div>
+        <div class="row">
+          <div id="gen-out" class="out" style="width:100%;">—</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    /* -------------------------
+       DATE
+    ------------------------- */
+    const dateFechaEl = document.getElementById('date-fecha');
+    const dateDiaEl = document.getElementById('date-dia');
+    const dateRestEl = document.getElementById('date-restantes');
+    const diasSemana = ["Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"];
+
+    function actualizarDate(){
+      const hoy = new Date();
+      const d = hoy.getDate();
+      const m = hoy.getMonth() + 1;
+      const y = hoy.getFullYear();
+      const hh = String(hoy.getHours()).padStart(2,'0');
+      const mm = String(hoy.getMinutes()).padStart(2,'0');
+      const ss = String(hoy.getSeconds()).padStart(2,'0');
+      dateFechaEl.textContent = `Fecha: ${d}/${m}/${y}   Hora: ${hh}:${mm}:${ss}`;
+      dateDiaEl.textContent = `Día de la semana: ${diasSemana[hoy.getDay()]}`;
+      const finAño = new Date(y,11,31,23,59,59);
+      const msRest = finAño - hoy;
+      const diasRest = Math.ceil(msRest / (1000*60*60*24));
+      dateRestEl.textContent = `Días hasta fin de año: ${diasRest}`;
+    }
+    actualizarDate();
+    setInterval(actualizarDate, 1000);
+
+    /* -------------------------
+       STRING
+    ------------------------- */
+    const strInput = document.getElementById('str-input');
+    const strBtn = document.getElementById('str-btn');
+    const strLen = document.getElementById('str-len');
+    const strUpper = document.getElementById('str-upper');
+    const strRev = document.getElementById('str-rev');
+    const strWords = document.getElementById('str-words');
+
+    strBtn.addEventListener('click', ()=> {
+      const text = String(strInput.value || '').trim();
+      strLen.textContent = 'Longitud: ' + text.length;
+      strUpper.textContent = 'Mayúsculas: ' + text.toUpperCase();
+      // invertir sin métodos externos (usar loop)
+      let inv = '';
+      for(let i = text.length - 1; i >= 0; i--) inv += text[i];
+      strRev.textContent = 'Invertida: ' + (inv || '—');
+      const words = text ? text.split(/\s+/) : [];
+      strWords.textContent = 'Palabras: ' + words.length + (words.length ? ' → ' + words.join(', ') : '');
+    });
+
+    /* -------------------------
+       MATH
+    ------------------------- */
+    const mathNum = document.getElementById('math-num');
+    const mathBtn = document.getElementById('math-btn');
+    const mRound = document.getElementById('math-round');
+    const mSqrt = document.getElementById('math-sqrt');
+    const mAbs = document.getElementById('math-abs');
+    const mRand = document.getElementById('math-rand');
+
+    mathBtn.addEventListener('click', ()=> {
+      const n = parseFloat(mathNum.value);
+      if(isNaN(n)){ alert('Introduce un número válido'); return; }
+      mRound.textContent = 'Round: ' + Math.round(n);
+      mSqrt.textContent = 'Sqrt: ' + (n >= 0 ? Math.sqrt(n) : 'NaN (negativo)');
+      mAbs.textContent = 'Abs: ' + Math.abs(n);
+      mRand.textContent = 'Aleatorio (1-100): ' + Math.floor(Math.random()*100 + 1);
+    });
+
+    /* -------------------------
+       NAVIGATOR
+    ------------------------- */
+    document.getElementById('nav-ua').textContent = 'UA: ' + navigator.userAgent;
+    document.getElementById('nav-lang').textContent = 'Idioma: ' + (navigator.language || navigator.userLanguage || '—');
+    document.getElementById('nav-cookies').textContent = 'Cookies habilitadas: ' + (navigator.cookieEnabled ? 'Sí' : 'No');
+
+    /* -------------------------
+       SCREEN
+    ------------------------- */
+    const screenBtn = document.getElementById('screen-btn');
+    const screenW = document.getElementById('screen-w');
+    const screenH = document.getElementById('screen-h');
+    const screenD = document.getElementById('screen-d');
+    const screenPpi = document.getElementById('screen-ppi');
+    const screenPpiBtn = document.getElementById('screen-ppi-btn');
+    const screenDIn = document.getElementById('screen-d-in');
+
+    screenBtn.addEventListener('click', ()=> {
+      const w = window.screen.width;
+      const h = window.screen.height;
+      const diag = Math.sqrt(w*w + h*h);
+      screenW.textContent = 'W: ' + w + ' px';
+      screenH.textContent = 'H: ' + h + ' px';
+      screenD.textContent = 'Diagonal: ' + Math.round(diag*100)/100 + ' px';
+    });
+
+    screenPpiBtn.addEventListener('click', ()=> {
+      const ppi = parseFloat(screenPpi.value);
+      const w = window.screen.width;
+      const h = window.screen.height;
+      if(!ppi || ppi <= 0){ screenDIn.textContent = 'Introduce PPI válido'; return; }
+      const diagPx = Math.sqrt(w*w + h*h);
+      const diagIn = diagPx / ppi;
+      screenDIn.textContent = Math.round(diagIn*100)/100 + ' in';
+    });
+
+    /* -------------------------
+       LOCATION
+    ------------------------- */
+    document.getElementById('loc-google').addEventListener('click', ()=> { location.href = 'https://www.google.es'; });
+    document.getElementById('loc-reload').addEventListener('click', ()=> { location.reload(); });
+    document.getElementById('loc-show').addEventListener('click', ()=> { document.getElementById('loc-out').textContent = 'URL: ' + location.href; });
+
+    /* -------------------------
+       HISTORY
+    ------------------------- */
+    const hBack = document.getElementById('h-back');
+    const hForward = document.getElementById('h-forward');
+    const hGoM1 = document.getElementById('h-go--1');
+    const hPush = document.getElementById('h-push');
+    const hReplace = document.getElementById('h-replace');
+    const hLen = document.getElementById('h-length');
+    const hState = document.getElementById('h-state');
+    const hPop = document.getElementById('h-pop');
+
+    function refreshH(){ hLen.textContent = 'length: ' + history.length; hState.textContent = 'state: ' + JSON.stringify(history.state); }
+    refreshH();
+
+    hBack.addEventListener('click', ()=> history.back());
+    hForward.addEventListener('click', ()=> history.forward());
+    hGoM1.addEventListener('click', ()=> history.go(-1));
+
+    let pushCounter = 0;
+    hPush.addEventListener('click', ()=> {
+      pushCounter++;
+      const s = {type:'push', n:pushCounter};
+      history.pushState(s, '', location.pathname + '?p=' + pushCounter);
+      refreshH();
+    });
+    hReplace.addEventListener('click', ()=> {
+      const s = {type:'replace', t:Date.now()};
+      history.replaceState(s, '', location.pathname + '?r=1');
+      refreshH();
+    });
+
+    window.addEventListener('popstate', (ev)=> {
+      hPop.textContent = 'popstate: ' + JSON.stringify(ev.state);
+      refreshH();
+    });
+
+    /* -------------------------
+       VENTANAS
+    ------------------------- */
+    let popup = null;
+    const winStatus = document.getElementById('win-status');
+    const winLog = document.getElementById('win-log');
+
+    function logWin(msg){
+      const t = new Date().toLocaleTimeString();
+      winLog.textContent = `[${t}] ${msg}\n` + winLog.textContent;
+    }
+    function updateWinStatus(){
+      if(!popup){ winStatus.textContent = 'No existe'; return; }
+      try {
+        winStatus.textContent = popup.closed ? 'Cerrada' : 'Abierta';
+      } catch(e){
+        winStatus.textContent = 'Existe (sin acceso)';
+      }
+    }
+
+    document.getElementById('win-open').addEventListener('click', ()=> {
+      if(!confirm('¿Deseas abrir una ventana nueva?')){ logWin('Apertura cancelada'); updateWinStatus(); return; }
+      if(popup && !popup.closed){ popup.focus(); logWin('Ventana ya abierta, enfocado'); updateWinStatus(); return; }
+      const features = 'toolbar=no,location=no,menubar=no,status=no,scrollbars=yes,resizable=yes,width=200,height=80,left=500,top=500';
+      try{
+        popup = window.open('', 'miPopupDWEC', features);
+        if(!popup){ logWin('Popup bloqueado'); updateWinStatus(); return; }
+        popup.document.title = 'Ventana hija';
+        popup.document.body.style.margin = '12px';
+        popup.document.body.style.fontFamily = 'Arial, sans-serif';
+        popup.document.body.innerHTML = `<p style="margin:0 0 8px 0;">Ventana creada por la principal. Tamaño 200×80.</p>
+          <button id="btn-close-self">Cerrar ventana</button>
+          <div style="height:600px; margin-top:10px;">Contenido largo para probar scroll (líneas)<br>` + Array(30).fill('Lorem ipsum').join('<br>') + `</div>`;
+        // cerrar desde hija
+        popup.document.getElementById('btn-close-self').addEventListener('click', ()=> popup.close());
+        logWin('Ventana creada correctamente');
+        updateWinStatus();
+      } catch(err){
+        logWin('Error al abrir: ' + err.message);
+        updateWinStatus();
+      }
+    });
+
+    document.getElementById('win-close').addEventListener('click', ()=> {
+      try{
+        if(!popup){ logWin('Cerrar: no existe'); updateWinStatus(); return; }
+        if(popup.closed){ logWin('Cerrar: ya cerrada'); updateWinStatus(); return; }
+        popup.close();
+        logWin('Ventana cerrada desde principal');
+        updateWinStatus();
+      } catch(e){ logWin('Error cerrar: ' + e.message); }
+    });
+
+    document.getElementById('win-moveby').addEventListener('click', ()=> {
+      try{ if(!popup || popup.closed){ logWin('moveBy: ventana no existe'); updateWinStatus(); return; } popup.moveBy(10,10); logWin('moveBy(10,10)'); updateWinStatus(); } catch(e){ logWin('Error moveBy: ' + e.message); }
+    });
+    document.getElementById('win-moveto').addEventListener('click', ()=> {
+      try{ if(!popup || popup.closed){ logWin('moveTo: ventana no existe'); updateWinStatus(); return; } popup.moveTo(100,100); logWin('moveTo(100,100)'); updateWinStatus(); } catch(e){ logWin('Error moveTo: ' + e.message); }
+    });
+    document.getElementById('win-resizeby').addEventListener('click', ()=> {
+      try{ if(!popup || popup.closed){ logWin('resizeBy: ventana no existe'); updateWinStatus(); return; } popup.resizeBy(10,10); logWin('resizeBy +10'); updateWinStatus(); } catch(e){ logWin('Error resizeBy: ' + e.message); }
+    });
+    document.getElementById('win-resizeto').addEventListener('click', ()=> {
+      try{ if(!popup || popup.closed){ logWin('resizeTo: ventana no existe'); updateWinStatus(); return; } popup.resizeTo(400,200); logWin('resizeTo 400x200'); updateWinStatus(); } catch(e){ logWin('Error resizeTo: ' + e.message); }
+    });
+    document.getElementById('win-scroll-top').addEventListener('click', ()=> {
+      try{ if(!popup || popup.closed){ logWin('scrollTop: ventana no existe'); updateWinStatus(); return; } popup.scrollTo(0,0); logWin('scrollTo(0,0)'); updateWinStatus(); } catch(e){ logWin('Error scrollTo: ' + e.message); }
+    });
+    document.getElementById('win-scroll-50').addEventListener('click', ()=> {
+      try{ if(!popup || popup.closed){ logWin('scroll50: ventana no existe'); updateWinStatus(); return; } popup.scrollTo(0,50); logWin('scrollTo(0,50)'); updateWinStatus(); } catch(e){ logWin('Error scrollTo: ' + e.message); }
+    });
+
+    setInterval(updateWinStatus, 700);
+
+    /* -------------------------
+       LOCALSTORAGE
+    ------------------------- */
+    const lsSave = document.getElementById('ls-save');
+    const lsRead = document.getElementById('ls-read');
+    const lsClear = document.getElementById('ls-clear');
+    const lsName = document.getElementById('ls-name');
+    const lsOut = document.getElementById('ls-out');
+
+    lsSave.addEventListener('click', ()=> {
+      const v = String(lsName.value || '').trim();
+      if(!v){ alert('Introduce un nombre'); return; }
+      localStorage.setItem('usuarioDWEC', v);
+      lsOut.textContent = 'Valor guardado: ' + v;
+    });
+    lsRead.addEventListener('click', ()=> {
+      const v = localStorage.getItem('usuarioDWEC');
+      lsOut.textContent = 'Valor guardado: ' + (v || '—');
+    });
+    lsClear.addEventListener('click', ()=> {
+      localStorage.removeItem('usuarioDWEC');
+      lsOut.textContent = 'Valor borrado';
+    });
+    // leer automáticamente al cargar
+    (function(){ const v = localStorage.getItem('usuarioDWEC'); if(v) lsOut.textContent = 'Valor guardado: ' + v; })();
+
+    /* -------------------------
+       COOKIES
+    ------------------------- */
+    const cookieSet = document.getElementById('cookie-set');
+    const cookieRead = document.getElementById('cookie-read');
+    const cookieDel = document.getElementById('cookie-del');
+    const cookieName = document.getElementById('cookie-name');
+    const cookieOut = document.getElementById('cookie-out');
+
+    function setCookie(name, value, minutes){
+      const d = new Date();
+      d.setTime(d.getTime() + minutes*60*1000);
+      document.cookie = `${encodeURIComponent(name)}=${encodeURIComponent(value)};expires=${d.toUTCString()};path=/`;
+    }
+    function readCookie(name){
+      const nameEQ = encodeURIComponent(name) + '=';
+      const ca = document.cookie.split(';');
+      for(let c of ca){
+        c = c.trim();
+        if(c.indexOf(nameEQ) === 0) return decodeURIComponent(c.substring(nameEQ.length));
+      }
+      return null;
+    }
+    function deleteCookie(name){
+      document.cookie = `${encodeURIComponent(name)}=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/`;
+    }
+
+    cookieSet.addEventListener('click', ()=> {
+      const v = String(cookieName.value || '').trim();
+      if(!v) { alert('Introduce un valor'); return; }
+      setCookie('usuario', v, 1); // 1 minuto
+      cookieOut.textContent = 'Cookie creada: usuario=' + v;
+    });
+    cookieRead.addEventListener('click', ()=> {
+      const v = readCookie('usuario');
+      cookieOut.textContent = 'Cookie usuario: ' + (v || 'No existe');
+    });
+    cookieDel.addEventListener('click', ()=> {
+      deleteCookie('usuario');
+      cookieOut.textContent = 'Cookie eliminada';
+    });
+
+    /* -------------------------
+       TIMERS - cuenta atrás
+    ------------------------- */
+    let timerInterval = null;
+    const timerStart = document.getElementById('timer-start');
+    const timerStop = document.getElementById('timer-stop');
+    const timerReset = document.getElementById('timer-reset');
+    const timerSecs = document.getElementById('timer-secs');
+    const timerOut = document.getElementById('timer-out');
+    let currentTime = 0;
+
+    timerStart.addEventListener('click', ()=> {
+      if(timerInterval) return; // ya corriendo
+      currentTime = parseInt(timerSecs.value, 10) || 0;
+      timerOut.textContent = 'Tiempo: ' + currentTime + ' s';
+      timerInterval = setInterval(()=> {
+        currentTime--;
+        timerOut.textContent = 'Tiempo: ' + currentTime + ' s';
+        if(currentTime <= 0){ clearInterval(timerInterval); timerInterval = null; timerOut.textContent = '¡Tiempo terminado!'; }
+      }, 1000);
+    });
+
+    timerStop.addEventListener('click', ()=> {
+      if(timerInterval){ clearInterval(timerInterval); timerInterval = null; timerOut.textContent = 'Pausado en: ' + currentTime + ' s'; }
+    });
+    timerReset.addEventListener('click', ()=> {
+      if(timerInterval){ clearInterval(timerInterval); timerInterval = null; }
+      currentTime = parseInt(timerSecs.value,10) || 0;
+      timerOut.textContent = 'Reset: ' + currentTime + ' s';
+    });
+
+    /* -------------------------
+       GENERAR ELEMENTOS
+    ------------------------- */
+    const genListBtn = document.getElementById('gen-list');
+    const genClearBtn = document.getElementById('gen-clear');
+    const genOut = document.getElementById('gen-out');
+
+    genListBtn.addEventListener('click', ()=> {
+      const ul = document.createElement('ul');
+      ul.style.paddingLeft = '18px';
+      for(let i=1;i<=5;i++){
+        const li = document.createElement('li');
+        li.textContent = 'Elemento ' + i;
+        ul.appendChild(li);
+      }
+      genOut.innerHTML = '';
+      genOut.appendChild(ul);
+    });
+    genClearBtn.addEventListener('click', ()=> { genOut.innerHTML = ''; });
+
+    /* -------------------------
+       Inicializaciones
+    ------------------------- */
+    // Mostrar estado inicial de history y ventanas
+    (function init(){
+      try{ document.getElementById('h-length').textContent = 'length: ' + history.length; } catch(e){}
+      document.getElementById('win-status').textContent = 'No existe';
+    })();
+  </script>
+</body>
+</html>
+z
