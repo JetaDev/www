@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recursividad</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    div {
+
+      margin-bottom: 30px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    h2 {
+      color: #333;
+    }
+
+    input {
+      margin: 5px 0;
+      padding: 5px;
+      width: 200px;
+    }
+
+    button {
+      padding: 5px 10px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+
+    p {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="ejercicio1">
+    <h2>Ejercicio 1. Numeros naturales Recursividad</h2>
+    Número:
+    <input type="number" id="numero1" placeholder="Ecribe un numero natural" />
+    <button onclick="mostrarNatural()">
+      Calcular
+    </button>
+    <p id="resultado1"></p>
+  </div>
+  <div id="ejercicio2">
+    <h2>Ejercicio 2. Potencia Recursividad</h2>
+    Base:
+    <input type="number" id="base" placeholder="Ecribe la base" />
+    Exponente:
+    <input type="number" id="exponente" placeholder="Ecribe el exponente" />
+    <button onclick="mostrarPotencia()">
+      Calcular
+    </button>
+    <p id="resultado2"></p>
+  </div>
+  <div id="ejercicio3">
+    <h2>Ejercicio 3. Invertir Cadena Recursividad</h2>
+    Cadena:
+    <input type="text" id="cadena" placeholder="Ecribe una cadena" />
+    <button onclick="mostrarCadena()">
+      Invertir
+    </button>
+    <p id="resultado3"></p>
+  </div>
+  <div id="ejercicio4">
+    <h2>Ejercicio 4. Palindromo</h2>
+    Cadena:
+    <input type="text" id="palindromo" placeholder="Ecribe una cadena" />
+    <button onclick="esPalindromo()">
+      Comprobar
+    </button>
+    <p id="resultado4"></p>
+  </div>
+  <div id="ejercicio5">
+    <h2>Ejercicio 5. Fibonacci</h2>
+    Número:
+    <input type="number" id="numeroFibo" placeholder="Ecribe un numero natural" />
+    <button onclick="mostrarFibonacci()">
+      Calcular
+    </button>
+    <p id="resultado5"></p>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>

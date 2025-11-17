@@ -1,0 +1,45 @@
+.header-pic-thumb {
+  height: 36px;
+}
+
+.logo-thumb {
+  width: 32px;
+}
+
+.avatar-thumb {
+  width: 36px;
+}
+
+.hero-pic {
+  --bs-aspect-ratio: 31%;
+}
+
+.text-shadow-custom {
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+.hero-search {
+  max-width: 90%;
+}
+
+.hover-scale {
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.hover-scale:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 1.5s ease-in-out;
+}

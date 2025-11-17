@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reservia</title>
+
+    <link
+      href="./bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./fontawesome/css/all.min.css" />
+    <link rel="stylesheet" href="./css/custom.css" />
+  </head>
+
+  <body>
+    <header class="bg-white border-bottom sticky-top">
+      <div
+        class="container-fluid py-2 px-5 d-flex justify-content-between align-items-center"
+      >
+        <div class="d-flex align-items-center">
+          <img
+            src="imagenes/logo.webp"
+            alt="Logo Reservia"
+            class="me-5"
+            style="max-height: 40px"
+          />
+          <ul class="nav d-none d-lg-flex">
+            <li class="nav-item">
+              <a
+                href="#"
+                class="nav-link text-dark fw-bold border-bottom border-primary border-3 pb-2 pt-0 mx-2"
+                >Inicio</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link text-dark mx-2">Explorar</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link text-dark mx-2">Mis reservas</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link text-dark mx-2">Ayuda</a>
+            </li>
+          </ul>
+        </div>
+        <div class="d-flex align-items-center">
+          <div class="input-group me-3 d-none d-lg-flex" role="search">
+            <span
+              class="input-group-text bg-white border-end-0 border-dark-subtle"
+            >
+              <i class="fas fa-search"></i>
+            </span>
+            <input
+              class="form-control border-start-0 border-dark-subtle"
+              type="search"
+              placeholder="Buscar"
+            />
+          </div>
+          <div class="d-flex align-items-center">
+            <img
+              src="imagenes/user.png"
+              alt="Avatar"
+              class="rounded-circle"
+              style="width: 40px; height: 40px; object-fit: cover"
+            />
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="d-none d-lg-block"></div>
+
+    <main class="container-fluid">
+      <section class="p-0 position-relative mb-5" style="height: 400px">
+        <div class="h-100">
+          <img
+            src="imagenes/hotel-banner.png"
+            alt="Reservia"
+            class="img-fluid w-100 h-100 object-fit-cover position-absolute top-0 start-0"
+          />
+          <div
+            class="position-absolute w-100 h-100 top-0 start-0"
+            style="background-color: rgba(0, 0, 0, 0.4)"
+          ></div>
+        </div>
+
+        <div
+          class="position-absolute top-50 start-0 translate-middle-y text-white p-5 w-100 text-shadow-custom"
+        >
+          <h1 class="display-4 fw-bold mb-3">
+            Descubre tu próximo hogar lejos de casa
+          </h1>
+          <p class="fs-5 mb-4">Reserva alojamientos únicos en todo el mundo</p>
+          <form class="d-flex hero-search" role="search">
+            <input
+              class="form-control form-control-lg rounded-start-pill border-0"
+              type="search"
+              placeholder="A dónde"
+            />
+            <button
+              class="btn btn-primary btn-lg rounded-end-pill px-4"
+              type="submit"
+            >
+              Buscar
+            </button>
+          </form>
+        </div>
+      </section>
+
+      <section class="container px-5 mb-5">
+        <div class="mb-5">
+          <h2 class="fs-3 fw-bold mb-4">Alojamientos destacados</h2>
+          <div class="row row-cols-1 row-cols-lg-3 g-4">
+            <div class="col">
+              <a
+                class="text-decoration-none text-dark d-block hover-scale"
+                href="detalles.html"
+              >
+                <div
+                  class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden"
+                >
+                  <img
+                    src="imagenes/hoteles/2.png"
+                    alt="Hotel Paraíso"
+                    class="card-img-top object-fit-cover"
+                    style="height: 200px"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title fw-bold">Hotel Paraíso</h5>
+                    <p class="card-text text-muted">
+                      Disfruta de la serenidad en nuestras lujosas habitaciones
+                      con visitas al mar.
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="col">
+              <a
+                class="text-decoration-none text-dark d-block hover-scale"
+                href="detalles.html"
+              >
+                <div
+                  class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden"
+                >
+                  <img
+                    src="imagenes/hoteles/3.png"
+                    alt="Apartamento Urbano"
+                    class="card-img-top object-fit-cover"
+                    style="height: 200px"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title fw-bold">Apartamento Urbano</h5>
+                    <p class="card-text text-muted">
+                      Experimenta la vida urbana en nuestro moderno apartamento
+                      con todas las comodidades.
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="col">
+              <a
+                class="text-decoration-none text-dark d-block hover-scale"
+                href="detalles.html"
+              >
+                <div
+                  class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden"
+                >
+                  <img
+                    src="imagenes/hoteles/4.png"
+                    alt="Cabaña Acogedora"
+                    class="card-img-top object-fit-cover"
+                    style="height: 200px"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title fw-bold">Cabaña Acogedora</h5>
+                    <p class="card-text text-muted">
+                      Escapa a la naturaleza en nuestra acogedora cabaña con
+                      chimenea y vistas panorámicas.
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <hr class="my-5" />
+
+        <div class="mb-5">
+          <h2 class="fs-3 fw-bold mb-4">Los más reservados</h2>
+          <div class="row row-cols-1 row-cols-lg-3 g-4">
+            <div class="col">
+              <a
+                class="text-decoration-none text-dark d-block hover-scale"
+                href="detalles.html"
+              >
+                <div
+                  class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden"
+                >
+                  <img
+                    src="imagenes/hoteles/5.png"
+                    alt="Villa Frente al Mar"
+                    class="card-img-top object-fit-cover"
+                    style="height: 200px"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title fw-bold">Villa Frente al Mar</h5>
+                    <p class="card-text text-muted">
+                      Relájate en nuestra exclusiva villa con acceso directo a
+                      la playa y piscina privada.
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="col">
+              <a
+                class="text-decoration-none text-dark d-block hover-scale"
+                href="detalles.html"
+              >
+                <div
+                  class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden"
+                >
+                  <img
+                    src="imagenes/hoteles/6.png"
+                    alt="Refugio de Montaña"
+                    class="card-img-top object-fit-cover"
+                    style="height: 200px"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title fw-bold">Refugio de Montaña</h5>
+                    <p class="card-text text-muted">
+                      Disfruta de la tranquilidad en nuestro refugio de montaña
+                      con actividades al aire libre.
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="col">
+              <a
+                class="text-decoration-none text-dark d-block hover-scale"
+                href="detalles.html"
+              >
+                <div
+                  class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden"
+                >
+                  <img
+                    src="imagenes/hoteles/7.png"
+                    alt="Hotel en el Centro"
+                    class="card-img-top object-fit-cover"
+                    style="height: 200px"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title fw-bold">Hotel en el Centro</h5>
+                    <p class="card-text text-muted">
+                      Hospédate en nuestro hotel céntrico con fácil acceso a los
+                      principales puntos de interés.
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <hr class="my-5" />
+
+        <div class="mb-5">
+          <h2 class="fs-3 fw-bold mb-4">Sugerencias para ti</h2>
+          <div class="row row-cols-1 row-cols-lg-3 g-4">
+            <div class="col">
+              <a
+                class="text-decoration-none text-dark d-block hover-scale"
+                href="detalles.html"
+              >
+                <div
+                  class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden"
+                >
+                  <img
+                    src="imagenes/hoteles/8.png"
+                    alt="Casa de Campo"
+                    class="card-img-top object-fit-cover"
+                    style="height: 200px"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title fw-bold">Casa de Campo</h5>
+                    <p class="card-text text-muted">
+                      Escapa del bullicio de la ciudad en nuestra encantadora
+                      casa de campo con jardines y huertos.
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="col">
+              <a
+                class="text-decoration-none text-dark d-block hover-scale"
+                href="detalles.html"
+              >
+                <div
+                  class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden"
+                >
+                  <img
+                    src="imagenes/hoteles/9.png"
+                    alt="Apartamento de Lujo"
+                    class="card-img-top object-fit-cover"
+                    style="height: 200px"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title fw-bold">Apartamento de Lujo</h5>
+                    <p class="card-text text-muted">
+                      Disfruta de la elegancia y el confort en nuestro
+                      apartamento de lujo con servicios exclusivos.
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="col">
+              <a
+                class="text-decoration-none text-dark d-block hover-scale"
+                href="detalles.html"
+              >
+                <div
+                  class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden"
+                >
+                  <img
+                    src="imagenes/hoteles/10.png"
+                    alt="Hostal Económico"
+                    class="card-img-top object-fit-cover"
+                    style="height: 200px"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title fw-bold">Hostal Económico</h5>
+                    <p class="card-text text-muted">
+                      Ahorra en alojamiento sin sacrificar la comodidad en
+                      nuestro hostal económico.
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="container my-5"></div>
+
+    <footer class="bg-light border-top">
+      <div
+        class="container px-5 py-4 d-flex justify-content-between align-items-center"
+      >
+        <ul class="nav">
+          <li class="nav-item">
+            <a href="#" class="nav-link text-dark px-2">Acerca de</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link text-dark px-2">Soporte</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link text-dark px-2"
+              >Términos y Condiciones</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <div class="container text-center pb-3">
+        <p class="text-muted mb-0">
+          &copy; 2025 Reservia. Todos los derechos reservados.
+        </p>
+      </div>
+    </footer>
+
+    <script
+      src="bootstrap/js/bootstrap.bundle.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
