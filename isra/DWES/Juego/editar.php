@@ -1,132 +1,149 @@
 <?php
+$title = "Editar Preguntas";
 include 'header.php';
 
 $usuario = $_SESSION['usuario_actual'] ?? null;
 
-// Categorías
-$categorias = ['Matemáticas', 'Ciencias', 'Historia', 'Literatura', 'Geografía'];
-
-// Array simulado de preguntas
-$preguntas_existentes = [
-    '¿Capital de España?' => [
-        'opciones' => ['Madrid', 'Barcelona', 'Valencia'],
-        'correcta' => 0,
-        'categoria' => 'Geografía'
-    ],
-    '¿2+2=?' => [
-        'opciones' => ['3', '4', '5'],
-        'correcta' => 1,
-        'categoria' => 'Matemáticas'
-    ]
-];
-
-// Variables del formulario
-$mensaje = '';
-$form = false;
-$datos_form = [
-    'pregunta' => '',
-    'opciones' => ['', '', ''],
-    'correcta' => 0,
-    'categoria' => ''
-];
-
-// Determinar si se está editando o creando nueva
-$editar = $_GET['editar'] ?? '';
-$nueva = $_GET['nueva'] ?? '';
-
-// Cargar datos si se edita
-if ($editar && isset($preguntas_existentes[$editar])) {
-    $form = true;
-    $datos_form = $preguntas_existentes[$editar];
-    $datos_form['pregunta'] = $editar;
-} elseif ($nueva) {
-    // Solo "isra" puede añadir
-    if ($usuario !== 'isra') {
-        echo "<main style='padding:20px;'><p>No tienes permisos para añadir nuevas preguntas.</p></main>";
-        include 'footer.php';
-        exit;
-    }
-    $form = true;
+if ($usuario !== 'elchocas') {
+    echo '<main><div class="error"><p>Solo el usuario "elchocas" puede acceder</p></div></main>';
+    include 'footer.php';
+    exit;
 }
 
-// Procesar "guardar" (simulado)
-if (isset($_POST['guardar'])) {
-    $pregunta = trim($_POST['pregunta'] ?? '');
-    $opciones = [
-        trim($_POST['op1'] ?? ''),
-        trim($_POST['op2'] ?? ''),
-        trim($_POST['op3'] ?? '')
-    ];
-    $correcta = $_POST['correcta'] ?? '';
-    $categoria = $_POST['categoria'] ?? '';
+$categorias = ['Matemáticas', 'Ciencias', 'Historia', 'Literatura', 'Geografía'];
+$todasPreguntas = cargarPreguntas();
+$mensaje = '';
+$tipoMensaje = '';
+$modoEdicion = false;
+$preguntaEditar = null;
+$datosFormulario = ['enunciado' => '', 'opciones' => ['', '', ''], 'correcta' => '', 'categoria' => ''];
 
-    if ($pregunta === '' || in_array('', $opciones) || $correcta === '' || $categoria === '') {
-        $mensaje = "Falta información de la pregunta. Por favor completa todos los campos.";
-        $form = true;
-        $datos_form = [
-            'pregunta' => $pregunta,
-            'opciones' => $opciones,
-            'correcta' => $correcta,
-            'categoria' => $categoria
-        ];
+if (isset($_GET['modificar']) && $_GET['modificar'] !== '') {
+    $indiceModificar = (int)$_GET['modificar'];
+    if (isset($todasPreguntas[$indiceModificar])) {
+        $modoEdicion = true;
+        $preguntaEditar = $indiceModificar;
+        $datosFormulario = $todasPreguntas[$indiceModificar];
+    }
+} elseif (isset($_GET['nueva'])) {
+    $modoEdicion = true;
+}
+
+// Guardar pregunta con GET
+if (isset($_GET['guardar'])) {
+    $enunciado = trim($_GET['enunciado'] ?? '');
+    $opcion1 = trim($_GET['opcion1'] ?? '');
+    $opcion2 = trim($_GET['opcion2'] ?? '');
+    $opcion3 = trim($_GET['opcion3'] ?? '');
+    $correcta = $_GET['correcta'] ?? '';
+    $categoria = $_GET['categoria'] ?? '';
+    $indiceOriginal = $_GET['indice_original'] ?? '';
+
+    if (empty($enunciado) || empty($opcion1) || empty($opcion2) || empty($opcion3) || $correcta === '' || empty($categoria)) {
+        $mensaje = "❌ Completa todos los campos";
+        $tipoMensaje = 'error';
+        $modoEdicion = true;
+        $datosFormulario = ['enunciado' => $enunciado, 'opciones' => [$opcion1, $opcion2, $opcion3], 'correcta' => $correcta, 'categoria' => $categoria];
     } else {
-        $mensaje = "Pregunta guardada correctamente (simulado).";
-        $form = false;
+        $nuevaPregunta = ['enunciado' => $enunciado, 'opciones' => [$opcion1, $opcion2, $opcion3], 'correcta' => (int)$correcta, 'categoria' => $categoria];
+
+        if ($indiceOriginal !== '') {
+            $indice = (int)$indiceOriginal;
+            if (isset($todasPreguntas[$indice])) {
+                guardarPregunta($nuevaPregunta, $todasPreguntas[$indice]['enunciado']);
+                $mensaje = "✅ Pregunta modificada correctamente";
+            }
+        } else {
+            guardarPregunta($nuevaPregunta);
+            $mensaje = "✅ Pregunta añadida correctamente";
+        }
+
+        $tipoMensaje = 'success';
+        $modoEdicion = false;
+        $todasPreguntas = cargarPreguntas();
     }
 }
 ?>
 
-<main style="padding:20px;">
-    <h1><?php echo $editar ? "Modificar pregunta" : "Añadir nueva pregunta"; ?></h1>
+<main>
+    <h1>✏️ Editar Preguntas</h1>
 
     <?php if ($mensaje): ?>
-        <p style="color:<?php echo strpos($mensaje, 'correctamente') !== false ? 'green' : 'red'; ?>;"><?php echo $mensaje; ?></p>
+        <div class="<?php echo $tipoMensaje; ?>"><?php echo $mensaje; ?></div>
     <?php endif; ?>
 
-    <?php if ($form): ?>
-        <form method="post">
-            <input type="hidden" name="editar" value="<?php echo htmlspecialchars($editar); ?>">
-            <label>Pregunta:<br>
-                <input type="text" name="pregunta" value="<?php echo htmlspecialchars($datos_form['pregunta']); ?>" required style="width: 400px;">
-            </label><br><br>
+    <?php if (!$modoEdicion): ?>
+        <a href="editar.php?nueva=1" class="btn">➕ Nueva Pregunta</a>
 
-            <label>Opción 1:<br>
-                <input type="text" name="op1" value="<?php echo htmlspecialchars($datos_form['opciones'][0]); ?>" required>
-            </label><br>
-            <label>Opción 2:<br>
-                <input type="text" name="op2" value="<?php echo htmlspecialchars($datos_form['opciones'][1]); ?>" required>
-            </label><br>
-            <label>Opción 3:<br>
-                <input type="text" name="op3" value="<?php echo htmlspecialchars($datos_form['opciones'][2]); ?>" required>
-            </label><br><br>
-
-            <label>Opción correcta:
-                <select name="correcta" required>
-                    <option value="">Selecciona</option>
-                    <option value="0" <?php if ($datos_form['correcta'] == 0) echo 'selected'; ?>>Opción 1</option>
-                    <option value="1" <?php if ($datos_form['correcta'] == 1) echo 'selected'; ?>>Opción 2</option>
-                    <option value="2" <?php if ($datos_form['correcta'] == 2) echo 'selected'; ?>>Opción 3</option>
-                </select>
-            </label><br><br>
-
-            <label>Categoría:
-                <select name="categoria" required>
-                    <option value="">Selecciona categoría</option>
-                    <?php foreach ($categorias as $cat): ?>
-                        <option value="<?php echo htmlspecialchars($cat); ?>" <?php if ($datos_form['categoria'] == $cat) echo 'selected'; ?>><?php echo htmlspecialchars($cat); ?></option>
-                    <?php endforeach; ?>
-                </select>
-            </label><br><br>
-
-            <button type="submit" name="guardar">Guardar</button>
+        <h3>Modificar Pregunta Existente:</h3>
+        <form method="get">
+            <select name="modificar" onchange="this.form.submit()">
+                <option value="">-- Selecciona --</option>
+                <?php foreach ($todasPreguntas as $i => $p): ?>
+                    <option value="<?php echo $i; ?>"><?php echo htmlspecialchars($p['enunciado']); ?></option>
+                <?php endforeach; ?>
+            </select>
         </form>
-    <?php else: ?>
-        <a href="jugar.php" style="display:inline-block; margin-top:10px;">Volver a preguntas</a>
 
-        <?php if (!empty($preguntas)): ?>
-            <h2>JSON temporal de preguntas</h2>
-            <pre><?php echo json_encode($preguntas, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE); ?></pre>
-        <?php endif; ?>
+        <h3>Preguntas (<?php echo count($todasPreguntas); ?>)</h3>
+        <?php foreach ($todasPreguntas as $i => $p): ?>
+            <div class="pregunta-card">
+                <span class="categoria categoria-<?php echo htmlspecialchars($p['categoria']); ?>">
+                    <?php echo htmlspecialchars($p['categoria']); ?>
+                </span>
+                <h4><?php echo htmlspecialchars($p['enunciado']); ?></h4>
+                <ul>
+                    <?php foreach ($p['opciones'] as $j => $op): ?>
+                        <li <?php if ($j === $p['correcta']) echo 'style="color: #4CAF50;"'; ?>>
+                            <?php echo htmlspecialchars($op); ?> <?php if ($j === $p['correcta']) echo '✓'; ?>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+                <a href="editar.php?modificar=<?php echo $i; ?>" class="btn">Modificar</a>
+            </div>
+        <?php endforeach; ?>
+    <?php else: ?>
+        <h2><?php echo ($preguntaEditar !== null) ? 'Modificar' : 'Nueva'; ?> Pregunta</h2>
+
+        <form method="get">
+            <?php if ($preguntaEditar !== null): ?>
+                <input type="hidden" name="indice_original" value="<?php echo $preguntaEditar; ?>">
+            <?php endif; ?>
+
+            <label>Enunciado: *</label>
+            <input type="text" name="enunciado" value="<?php echo htmlspecialchars($datosFormulario['enunciado']); ?>" required>
+
+            <label>Opción 1: *</label>
+            <input type="text" name="opcion1" value="<?php echo htmlspecialchars($datosFormulario['opciones'][0] ?? ''); ?>" required>
+
+            <label>Opción 2: *</label>
+            <input type="text" name="opcion2" value="<?php echo htmlspecialchars($datosFormulario['opciones'][1] ?? ''); ?>" required>
+
+            <label>Opción 3: *</label>
+            <input type="text" name="opcion3" value="<?php echo htmlspecialchars($datosFormulario['opciones'][2] ?? ''); ?>" required>
+
+            <label>Opción Correcta: *</label>
+            <select name="correcta" required>
+                <option value="">Selecciona</option>
+                <option value="0" <?php if (($datosFormulario['correcta'] ?? '') === 0) echo 'selected'; ?>>Opción 1</option>
+                <option value="1" <?php if (($datosFormulario['correcta'] ?? '') === 1) echo 'selected'; ?>>Opción 2</option>
+                <option value="2" <?php if (($datosFormulario['correcta'] ?? '') === 2) echo 'selected'; ?>>Opción 3</option>
+            </select>
+
+            <label>Categoría: *</label>
+            <select name="categoria" required>
+                <option value="">Selecciona</option>
+                <?php foreach ($categorias as $cat): ?>
+                    <option value="<?php echo htmlspecialchars($cat); ?>" <?php if (($datosFormulario['categoria'] ?? '') === $cat) echo 'selected'; ?>>
+                        <?php echo htmlspecialchars($cat); ?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
+
+            <input type="hidden" name="guardar" value="1">
+            <button type="submit">💾 Guardar</button>
+            <a href="editar.php" class="btn" style="background: #666;">Cancelar</a>
+        </form>
     <?php endif; ?>
 </main>
 

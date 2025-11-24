@@ -1,23 +1,358 @@
+/* CSS Simple - Fondo Negro */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    color: #fff;
+}
+
+.banner {
+    background: #1a1a1a;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    border-bottom: 2px solid #333;
+}
+
+.banner h1 {
+    font-size: 1.8em;
     margin: 0;
 }
 
 header {
-    display: grid;
-    grid-template-columns: 1fr auto; 
-    align-items: start; 
-    padding: 10px;
-    background: #f0f0f0;
+    background: #1a1a1a;
+    padding: 15px 20px;
+    border-bottom: 1px solid #333;
 }
 
 header nav {
-    text-align: center;
-    grid-column: 1 / -1; 
+    margin-bottom: 15px;
+}
+
+header nav a {
+    color: #4CAF50;
+    text-decoration: none;
+    margin-right: 20px;
+    padding: 5px 10px;
+    border: 1px solid #4CAF50;
+    border-radius: 3px;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+header nav a:hover {
+    background: #4CAF50;
+    color: #000;
+}
+
+header nav .disabled {
+    color: #666;
+    border-color: #666;
+    cursor: not-allowed;
+    margin-right: 20px;
+    padding: 5px 10px;
+    border: 1px solid #666;
+    border-radius: 3px;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.login-form {
+    background: #222;
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid #444;
+}
+
+.login-form div {
     margin-bottom: 10px;
 }
 
+.login-form label {
+    display: block;
+    margin-bottom: 5px;
+    color: #ccc;
+}
 
-header aside {
-    grid-column: 2; 
-    justify-self: end;
+.login-form input {
+    width: 200px;
+    padding: 8px;
+    background: #333;
+    border: 1px solid #555;
+    color: #fff;
+    border-radius: 3px;
+}
+
+.login-form button {
+    padding: 8px 15px;
+    background: #4CAF50;
+    color: #000;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #222;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #444;
+}
+
+.user-info img {
+    border-radius: 50%;
+    border: 2px solid #4CAF50;
+}
+
+.btn-logout {
+    padding: 5px 10px;
+    background: #f44336;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 3px;
+}
+
+.error {
+    background: #3d1a1a;
+    color: #ff6b6b;
+    padding: 15px;
+    border-left: 4px solid #f44336;
+    margin: 20px 0;
+}
+
+.success {
+    background: #1a3d1a;
+    color: #6bff6b;
+    padding: 15px;
+    border-left: 4px solid #4CAF50;
+    margin: 20px 0;
+}
+
+main {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 5px;
+}
+
+main h1 {
+    color: #4CAF50;
+    border-bottom: 2px solid #4CAF50;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+main h2, main h3 {
+    color: #ddd;
+    margin-top: 20px;
+}
+
+main p, main ul {
+    line-height: 1.6;
+    margin: 10px 0;
+}
+
+form label {
+    display: block;
+    margin-top: 15px;
+    color: #ccc;
+    font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="password"],
+form input[type="email"],
+form input[type="tel"],
+form input[type="file"],
+form select {
+    width: 100%;
+    max-width: 500px;
+    padding: 10px;
+    margin-top: 5px;
+    background: #222;
+    border: 1px solid #444;
+    color: #fff;
+    border-radius: 3px;
+}
+
+form button, .btn {
+    padding: 10px 20px;
+    background: #4CAF50;
+    color: #000;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 15px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.categoria {
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 3px;
+    font-size: 0.9em;
+    margin: 5px;
+    border: 1px solid;
+}
+
+.categoria-Matemáticas { background: #1a3d5c; border-color: #3498db; color: #3498db; }
+.categoria-Ciencias { background: #1a3d1a; border-color: #2ecc71; color: #2ecc71; }
+.categoria-Historia { background: #3d2a1a; border-color: #e67e22; color: #e67e22; }
+.categoria-Literatura { background: #2e1a3d; border-color: #9b59b6; color: #9b59b6; }
+.categoria-Geografía { background: #1a3d3d; border-color: #1abc9c; color: #1abc9c; }
+
+.pregunta-card {
+    background: #222;
+    border: 1px solid #444;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 5px;
+}
+
+.pregunta-card h2, .pregunta-card h3 {
+    color: #fff;
+}
+
+.pregunta-card .opciones {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+}
+
+.pregunta-card .opciones li {
+    background: #2a2a2a;
+    border: 1px solid #555;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.pregunta-card .opciones li:hover {
+    background: #333;
+    border-color: #4CAF50;
+}
+
+.puntuacion {
+    background: #222;
+    border: 2px solid #4CAF50;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.puntuacion div {
+    text-align: center;
+    padding: 10px;
+}
+
+.puntuacion .numero {
+    font-size: 2em;
+    font-weight: bold;
+    color: #4CAF50;
+}
+
+.puntuacion .label {
+    color: #ccc;
+    font-size: 0.9em;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th {
+    background: #2a2a2a;
+    color: #4CAF50;
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #444;
+}
+
+table td {
+    padding: 10px;
+    border: 1px solid #333;
+    background: #1a1a1a;
+    color: #fff;
+}
+
+table tr:hover td {
+    background: #222;
+}
+
+.avatar-selector {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 15px 0;
+}
+
+.avatar-selector img {
+    width: 80px;
+    height: 80px;
+    border-radius: 5px;
+    border: 2px solid #444;
+    cursor: pointer;
+}
+
+.avatar-selector img:hover {
+    border-color: #4CAF50;
+}
+
+.avatar-selector img.selected {
+    border-color: #4CAF50;
+    border-width: 3px;
+}
+
+footer {
+    background: #1a1a1a;
+    color: #666;
+    text-align: center;
+    padding: 15px;
+    margin-top: 30px;
+    border-top: 1px solid #333;
+}
+
+.cuentas-disponibles {
+    background: #2a2a2a;
+    border: 2px solid #4CAF50;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 5px;
+}
+
+.cuentas-disponibles h3 {
+    color: #4CAF50;
+    margin-top: 0;
+}
+
+.cuenta-item {
+    background: #1a1a1a;
+    border: 1px solid #444;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 3px;
+    color: #fff;
+}
+
+.cuenta-item strong {
+    color: #4CAF50;
 }

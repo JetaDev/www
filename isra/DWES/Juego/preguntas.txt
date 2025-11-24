@@ -1,0 +1,10 @@
+¿Cuál es la capital de España?|Madrid|Barcelona|Sevilla|0|Geografía
+¿Cuánto es 2 + 2?|3|4|5|1|Matemáticas
+¿En qué año descubrió Colón América?|1492|1500|1482|0|Historia
+¿Quién escribió Don Quijote?|Lope de Vega|Miguel de Cervantes|García Lorca|1|Literatura
+¿Cuál es el planeta más grande del sistema solar?|Marte|Tierra|Júpiter|2|Ciencias
+¿Cuánto es 10 x 5?|50|55|45|0|Matemáticas
+¿Cuál es el río más largo de Europa?|Danubio|Rin|Volga|2|Geografía
+¿Quién pintó La Mona Lisa?|Van Gogh|Leonardo da Vinci|Picasso|1|Literatura
+¿Cuál es la fórmula del agua?|H2O|CO2|O2|0|Ciencias
+¿En qué continente está Egipto?|Asia|Europa|África|2|Geografía
