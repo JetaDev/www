@@ -1,0 +1,91 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  padding: 20px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+.caja {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 18px;
+  transition: all 0.3s ease;
+}
+
+.caja1 {
+  background: linear-gradient(to bottom, #c084fc, #fb923c);
+  color: white;
+  border-radius: 20px;
+  opacity: 0.5;
+}
+
+.caja1:hover {
+  opacity: 1;
+}
+
+.caja2 {
+  background: linear-gradient(to bottom, #4d7c0f, #eab308);
+  color: white;
+  border-radius: 50%;
+}
+
+.caja2:hover {
+  background: radial-gradient(circle, #eab308, #4d7c0f);
+}
+
+.caja3 {
+  background-color: #d1d5db;
+  color: black;
+  border: 2px solid black;
+  border-radius: 20px;
+}
+
+.caja3:hover {
+  box-shadow: 5px 5px 5px 0px black;
+}
+
+.caja4 {
+  background: linear-gradient(to bottom, #fb923c, #dc2626);
+  color: black;
+  border-radius: 50%;
+}
+
+.caja4:hover {
+  background: radial-gradient(circle, #fb923c, #dc2626);
+}
+
+.caja5 {
+  background: repeating-linear-gradient(45deg, blue 0px, blue 5px, black 5px, black 10px);
+  color: white;
+}
+
+.caja5:hover {
+  background: repeating-linear-gradient(-45deg, red 0px, red 5px, black 5px, black 10px);
+}
+
+.caja6 {
+  background: repeating-radial-gradient(circle, #166534 0px, #166534 10px, #22c55e 10px, #22c55e 20px);
+  color: white;
+}
+
+.caja6:hover {
+  background: repeating-radial-gradient(circle, #22c55e 0px, #22c55e 10px, #166534 10px, #166534 20px);
+}

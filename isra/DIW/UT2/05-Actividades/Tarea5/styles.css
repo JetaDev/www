@@ -1,0 +1,81 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e0e0e0;
+}
+
+/* Header */
+.main-header {
+    background-color: #4a4a4a;
+    color: white;
+    padding: 20px;
+}
+
+.main-header h1 {
+    font-size: 1.8em;
+    font-weight: normal;
+}
+
+/* Contenedor principal con Flexbox */
+.gallery-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 30px 20px;
+}
+
+/* Cada tarjeta de la galería - disposición horizontal */
+.gallery-item {
+    display: flex;
+    flex-direction: row;
+    background-color: #d4d4d4;
+    border: 3px solid #333;
+    width: 450px;
+    overflow: hidden;
+}
+
+/* Contenedor de la imagen */
+.image-container {
+    flex-shrink: 0;
+    width: 150px;
+    border-right: 3px solid #333;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Contenedor del texto */
+.text-container {
+    flex: 1;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    background-color: #f0f0f0;
+}
+
+/* Título de cada tarjeta */
+.text-container h2 {
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* Texto descriptivo */
+.text-container p {
+    font-size: 0.8em;
+    line-height: 1.4;
+    color: #333;
+    text-align: justify;
+}

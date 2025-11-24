@@ -1,0 +1,23 @@
+.menu-botones {
+  display: flex;
+  gap: 15px;
+}
+
+.menu-botones a {
+  background-color: #FF7043;
+  color: white;
+  padding: 15px 40px;
+  text-decoration: none;
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  text-align: center;
+}
+
+.menu-botones a:hover {
+  background-color: #E65A2E;
+  cursor: pointer;
+}
+
+.menu-botones a:visited {
+  background-color: #D9534F;
+}

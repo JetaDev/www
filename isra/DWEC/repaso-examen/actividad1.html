@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 1 - Funciones y Arrays</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 8px;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .array-display {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            border-left: 4px solid #4CAF50;
+        }
+
+        .array-display span {
+            color: #2196F3;
+            font-family: monospace;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 20px 0;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .resultados {
+            margin-top: 20px;
+        }
+
+        .resultado-item {
+            background-color: #f9f9f9;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border-left: 4px solid #2196F3;
+        }
+
+        .resultado-item strong {
+            color: #333;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Actividad 1: Funciones y Arrays</h1>
+
+        <div class="card">
+            <h2>Prueba de Funciones con Arrays</h2>
+            <p>Este ejercicio demuestra el uso de funciones con arrays numéricos.</p>
+
+            <div class="array-display">
+                <strong>Array de prueba:</strong> <span id="arrayDisplay"></span>
+            </div>
+
+            <button id="ejecutarBtn">Ejecutar Funciones</button>
+
+            <div id="resultados" class="resultados"></div>
+        </div>
+    </div>
+
+    <script>
+        // Array de prueba con números variados
+        const arrayPrueba = [2, 5, 7, 3, 5, 8, 11, 5, 13, 4, 7, 2, 5];
+
+        // Mostrar el array en la página
+        document.getElementById('arrayDisplay').textContent = `[${arrayPrueba.join(', ')}]`;
+
+        // FUNCIONES PARA TRABAJAR CON ARRAYS
+
+        /**
+         * Devuelve el valor más alto contenido en el array
+         */
+        function numeroMasAlto(array) {
+            let maximo = array[0];
+            for (let i = 1; i < array.length; i++) {
+                if (array[i] > maximo) {
+                    maximo = array[i];
+                }
+            }
+            return maximo;
+        }
+
+        /**
+         * Devuelve el número de números impares contenidos en el array
+         */
+        function numeroImpares(array) {
+            let contador = 0;
+            for (let i = 0; i < array.length; i++) {
+                if (array[i] % 2 !== 0) {
+                    contador++;
+                }
+            }
+            return contador;
+        }
+
+        /**
+         * Devuelve la media aritmética de los números del array
+         */
+        function mediaAritmetica(array) {
+            let suma = 0;
+            for (let i = 0; i < array.length; i++) {
+                suma += array[i];
+            }
+            return suma / array.length;
+        }
+
+        /**
+         * Devuelve el valor de la moda, es decir, el valor que más veces se repite
+         */
+        function moda(array) {
+            let frecuencias = {};
+
+            // Contar frecuencias
+            for (let i = 0; i < array.length; i++) {
+                let numero = array[i];
+                if (frecuencias[numero]) {
+                    frecuencias[numero]++;
+                } else {
+                    frecuencias[numero] = 1;
+                }
+            }
+
+            // Encontrar el número con mayor frecuencia
+            let moda = array[0];
+            let maxFrecuencia = 0;
+
+            for (let numero in frecuencias) {
+                if (frecuencias[numero] > maxFrecuencia) {
+                    maxFrecuencia = frecuencias[numero];
+                    moda = Number(numero);
+                }
+            }
+
+            return moda;
+        }
+
+        /**
+         * Devuelve el número de números primos contenidos en el array
+         */
+        function numeroPrimos(array) {
+            function esPrimo(num) {
+                if (num <= 1) return false;
+                if (num === 2) return true;
+                if (num % 2 === 0) return false;
+
+                for (let i = 3; i <= Math.sqrt(num); i += 2) {
+                    if (num % i === 0) return false;
+                }
+                return true;
+            }
+
+            let contador = 0;
+            for (let i = 0; i < array.length; i++) {
+                if (esPrimo(array[i])) {
+                    contador++;
+                }
+            }
+            return contador;
+        }
+
+        // Función para mostrar resultados
+        function mostrarResultados() {
+            const resultadosDiv = document.getElementById('resultados');
+
+            // Ejecutar todas las funciones
+            const masAlto = numeroMasAlto(arrayPrueba);
+            const cantidadImpares = numeroImpares(arrayPrueba);
+            const media = mediaAritmetica(arrayPrueba);
+            const valorModa = moda(arrayPrueba);
+            const cantidadPrimos = numeroPrimos(arrayPrueba);
+
+            // Mostrar resultados
+            resultadosDiv.innerHTML = `
+                <div class="resultado-item">
+                    <strong>Número más alto:</strong> ${masAlto}
+                </div>
+                <div class="resultado-item">
+                    <strong>Cantidad de números impares:</strong> ${cantidadImpares}
+                </div>
+                <div class="resultado-item">
+                    <strong>Media aritmética:</strong> ${media.toFixed(2)}
+                </div>
+                <div class="resultado-item">
+                    <strong>Moda (valor más repetido):</strong> ${valorModa}
+                </div>
+                <div class="resultado-item">
+                    <strong>Cantidad de números primos:</strong> ${cantidadPrimos}
+                </div>
+            `;
+        }
+
+        // Agregar evento al botón
+        document.getElementById('ejecutarBtn').addEventListener('click', mostrarResultados);
+    </script>
+</body>
+
+</html>

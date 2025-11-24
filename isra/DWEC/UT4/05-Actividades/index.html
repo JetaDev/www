@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Tabla</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 20px;
+        }
+
+        .input-group {
+            margin-bottom: 10px;
+        }
+
+        table {
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        td {
+            border: 1px solid #000;
+            padding: 10px;
+            text-align: center;
+            width: 30px;
+            height: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Generador de Tabla con Letras</h1>
+
+    <div class="input-group">
+        <label for="nFilas">Número de Filas:</label>
+        <input type="text" id="nFilas" placeholder="Ej: 3">
+    </div>
+
+    <div class="input-group">
+        <label for="nColumnas">Número de Columnas:</label>
+        <input type="text" id="nColumnas" placeholder="Ej: 5">
+    </div>
+
+    <button id="btnRellenar">Dibujar Tabla</button>
+    <button id="btnTraspuesta">Calcular Traspuesta 3x3</button>
+
+    <div id="contenedorTabla"></div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

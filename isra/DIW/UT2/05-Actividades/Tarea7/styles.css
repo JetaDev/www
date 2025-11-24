@@ -1,0 +1,44 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e0e0e0;
+    padding: 10px;
+    height: 100vh;
+    display: flex;
+}
+
+/* Contenedor principal */
+.container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border: 3px solid #666;
+    padding: 10px;
+    gap: 2px;
+}
+
+/* Cada fila con Flexbox */
+.row {
+    flex: 1;
+    display: flex;
+    gap: 2px;
+}
+
+/* Cada caja dentro de la fila */
+.box {
+    flex: 1;
+    background-color: #888;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1em;
+    border: 2px solid white;
+}
