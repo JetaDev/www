@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estadísticas</title>
+</head>
+<body>
+
+<h1>Funciones estadísticas</h1>
+
+<form action="paso2.php" method="get">
+<!--Realiza una aplicación que permita calcular las funciones estadísticas básicas (mínimo,
+máximo, suma y media) sobre un conjunto de valores.
+◦ Para ello primero pide al usuario que introduzca el número de valores que tiene la muestra y la función
+a calcular.
+◦ A continuación solicita que introduzca los valores de la muestra a través de otro formulario, éste ya con
+tantos elementos para recoger valores como se hayan indicado anteriormente.
+◦ Por último realiza el cálculo indicado sobre los valores y muéstralo.-->
+    <label>Número de valores:</label>
+    <input type="number" name="cantidad" min="1" required>
+    <br><br>
+
+    <label>Función a calcular:</label>
+    <select name="funcion">
+        <option value="min">Mínimo</option>
+        <option value="max">Máximo</option>
+        <option value="suma">Suma</option>
+        <option value="media">Media</option>
+    </select>
+
+    <br><br>
+    <button type="submit">Continuar</button>
+
+</form>
+
+</body>
+</html>

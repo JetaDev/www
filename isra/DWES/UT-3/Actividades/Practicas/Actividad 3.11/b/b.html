@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estadísticas</title>
+</head>
+<body>
+
+<h1>Funciones estadísticas</h1>
+
+<form action="paso2.php" method="get">
+<!--Copia la aplicación y modifícala usando una matriz para almacenar los elementos.-->
+    <label>Número de valores:</label>
+    <input type="number" name="cantidad" min="1" required><br><br>
+
+    <label>Función a calcular:</label>
+    <select name="funcion">
+        <option value="min">Mínimo</option>
+        <option value="max">Máximo</option>
+        <option value="suma">Suma</option>
+        <option value="media">Media</option>
+    </select><br><br>
+
+    <button type="submit">Continuar</button>
+
+</form>
+
+</body>
+</html>

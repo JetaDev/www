@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formatos de texto</title>
+  </head>
+  <body>
+    <!--Crea un formulario HTML que recoja un texto a
+través de un cuadro de texto y las características del
+borde: estilo (liso, doble, punteado u oculto),
+tamaño en pixeles (entre 0 y 10) y color (negro, rojo,
+azul o amarillo).
+Envía los valores a un archivo PHP y muestra el texto
+en un cuadro con las características establecidas en
+el formulario.-->
+    <h1>Formatos de texto</h1>
+    <form action="ejer.php" method="get">
+      <label for="texto">Texto:</label>
+      <input type="text" id="texto" name="texto" required />
+
+      <fieldset>
+        <legend>Características del borde</legend>
+
+        <label for="tamaño">Tamaño:</label>
+        <input type="number" id="tamaño" name="tamaño" min="1" max="20" required />
+
+        <label for="estilo">Estilo:</label>
+        <select id="estilo" name="estilo">
+          <option value="liso">liso</option>
+          <option value="doble">doble</option>
+          <option value="punteado">punteado</option>
+          <option value="oculto">oculto</option>
+        </select>
+
+        <label for="color">Color:</label>
+        <select id="color" name="color">
+          <option value="negro">Negro</option>
+          <option value="rojo">Rojo</option>
+          <option value="azul">Azul</option>
+          <option value="amarillo">amarillo</option>
+        </select>
+      </fieldset>
+
+      <button type="submit">Enviar</button>
+    </form>
+  </body>
+</html>

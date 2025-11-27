@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Formulario de datos personales</title>
+  </head>
+  <body>
+    <!--Crea un formulario HTML que solicite al usuario que introduzca una serie de
+valores: nombre, apellidos, dirección y teléfono, y envía dichos datos a un
+archivo PHP que recogerá los valores y los mostrará en pantalla en una tabla.-->
+    <h2>Introduce tus datos</h2>
+    <form action="act1.php" method="get">
+      <label for="nombre">Nombre:</label><br />
+      <input type="text" id="nombre" name="nombre" required /><br /><br />
+
+      <label for="apellidos">Apellidos:</label><br />
+      <input type="text" id="apellidos" name="apellidos" required /><br /><br />
+
+      <label for="direccion">Dirección:</label><br />
+      <input type="text" id="direccion" name="direccion" required /><br /><br />
+
+      <label for="telefono">Teléfono:</label><br />
+      <input type="tel" id="telefono" name="telefono" required /><br /><br />
+
+      <input type="submit" value="Enviar" />
+    </form>
+  </body>
+</html>

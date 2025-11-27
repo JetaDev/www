@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Distancias entre ciudades</title>
+</head>
+<body>
+
+<h1>Consulta de distancias</h1>
+
+<form action="distancia.php" method="get">
+<!--Repite el ejercicio utilizando una matriz bidimensional asociativa-->
+    <label for="origen">Ciudad de origen:</label>
+    <select name="origen" id="origen">
+        <option value="Barcelona">Barcelona</option>
+        <option value="Coruña">Coruña</option>
+        <option value="Madrid">Madrid</option>
+        <option value="Sevilla">Sevilla</option>
+    </select>
+    <br><br>
+
+    <label for="destino">Ciudad de destino:</label>
+    <select name="destino" id="destino">
+        <option value="Barcelona">Barcelona</option>
+        <option value="Coruña">Coruña</option>
+        <option value="Madrid">Madrid</option>
+        <option value="Sevilla">Sevilla</option>
+    </select>
+    <br><br>
+
+    <button type="submit">Consultar</button>
+
+</form>
+
+</body>
+</html>

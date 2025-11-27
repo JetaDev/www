@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario de Pedido</title>
+</head>
+<body>
+
+    <!--Modifica la tabla anterior de manera que se haga un descuento en función del número total
+de unidades vendidas. En la factura se deberá mostrar tanto el porcentaje de descuento
+como su valor en euros-->
+    <h1>Formulario de Pedido</h1>
+    <form action="factura.php" method="get">
+        <label>Artículo 1 (€5.99): </label>
+        <input type="number" id="articulo1" name="articulo1" min="0" value="0"><br><br>
+
+        <label>Artículo 2 (€12.49): </label>
+        <input type="number" id="articulo2" name="articulo2" min="0" value="0"><br><br>
+
+        <label>Artículo 3 (€19.99): </label>
+        <input type="number" id="articulo3" name="articulo3" min="0" value="0"><br><br>
+
+        <button type="submit">Generar Factura</button>
+    </form>
+    <br> <br>
+    <h1>Descuentos</h1>
+
+    <table border="1">
+        <tr>
+            <th>Numero de unidades</th>
+            <th>descuento</th>
+        </tr>
+        <tr>
+            <td>Inferior a 5</td>
+            <td>sin descuento</td>
+        </tr>
+        <tr>
+            <td>entre 5 y 10</td>
+            <td>5%</td>
+        </tr>
+        <tr>
+            <td>entre 11 y 20</td>
+            <td>10%</td>
+        </tr>
+        <tr>
+            <td>Superior a 20</td>
+            <td>25%</td>
+        </tr>
+    </table>
+</body>
+</html>

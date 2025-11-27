@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Distancias entre ciudades</title>
+</head>
+<body>
+
+<h1>Consulta de distancias</h1>
+<!--Dada la siguiente tabla con distancias entre ciudades españolas, crea una aplicación que te
+permita seleccionar la ciudad de origen y la de destino y te muestre en pantalla la distancia
+entre ambas Utiliza una matriz bidimensional indexada.-->
+<form action="distancia.php" method="get">
+
+    <label for="origen">Ciudad de origen:</label>
+    <select name="origen" id="origen">
+        <option value="0">Barcelona</option>
+        <option value="1">Coruña</option>
+        <option value="2">Madrid</option>
+        <option value="3">Sevilla</option>
+    </select>
+    <br><br>
+
+    <label for="destino">Ciudad de destino:</label>
+    <select name="destino" id="destino">
+        <option value="0">Barcelona</option>
+        <option value="1">Coruña</option>
+        <option value="2">Madrid</option>
+        <option value="3">Sevilla</option>
+    </select>
+    <br><br>
+
+    <button type="submit">Consultar</button>
+
+</form>
+
+</body>
+</html>

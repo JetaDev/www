@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario alumno</title>
+</head>
+<body>
+
+    <!--Crea un formulario para recoger la información personal de los alumnos de un instituto de
+secundaria: nombre, apellidos, teléfono, dirección, población, provincia, fecha de
+nacimiento y estudios (ESO, Bachillerato, Ciclo Formativo). Recoge toda la información y
+muéstrala dentro de una tabla utilizando sendos bucles-->
+    <form action="b.php" method="get">
+
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" name="nombre"> <br><br>
+
+        <label for="apellidos">Apellidos</label>
+        <input type="text" name="apellidos" id="apellidos"><br><br>
+
+        <label for="telefono">Teléfono</label>
+        <input type="number" name="telefono" id="telefono"><br><br>
+
+        <label for="direccion">Dirección</label>
+        <input type="text" name="direccion" id="direccion"><br><br>
+
+        <label for="poblacion">Población</label>
+        <input type="text" name="poblacion" id="poblacion"><br><br>
+
+        <label for="provincia">Provincia</label>
+        <input type="text" name="provincia" id="provincia"><br><br>
+
+        <label for="fecha">Fecha de nacimiento</label>
+        <input type="date" name="fecha" id="fecha"><br><br>
+
+        <label for="estudios">Estudios</label>
+        <select id="estudios" name="estudios">
+          <option value="ESO">ESO</option>
+          <option value="Bachillerato">Bachillerato</option>
+          <option value="Ciclo Formativo">Ciclo Formativo</option>
+        </select><br><br>
+
+        <button type="submit">Enviar</button>
+
+    </form>
+</body>
+</html>
